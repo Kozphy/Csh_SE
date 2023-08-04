@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@latest",
+      "destination": "wwwroot/js/signalr",
+      "files": [
+        "dist/browser/signalr.min.js",
+        "dist/browser/signalr.js"
+      ]
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "bootstrap-icons@1.10.5",
+  "destination": "wwwroot/lib/bootstrap-icons/"
+}
+]
+}

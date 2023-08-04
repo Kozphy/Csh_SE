@@ -1,0 +1,174 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>96c6a7cd-9408-48ce-8ea6-32e33692d55f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="node_modules\.package-lock.json" />
+    <Content Include="node_modules\asynckit\package.json" />
+    <Content Include="node_modules\axios\package.json" />
+    <Content Include="node_modules\combined-stream\package.json" />
+    <Content Include="node_modules\delayed-stream\package.json" />
+    <Content Include="node_modules\follow-redirects\package.json" />
+    <Content Include="node_modules\form-data\package.json" />
+    <Content Include="node_modules\mailtrap\LICENSE.txt" />
+    <Content Include="node_modules\mailtrap\package.json" />
+    <Content Include="node_modules\mime-db\db.json" />
+    <Content Include="node_modules\mime-db\package.json" />
+    <Content Include="node_modules\mime-types\package.json" />
+    <Content Include="node_modules\proxy-from-env\package.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="node_modules\asynckit\bench.js" />
+    <None Include="node_modules\asynckit\index.js" />
+    <None Include="node_modules\asynckit\lib\abort.js" />
+    <None Include="node_modules\asynckit\lib\async.js" />
+    <None Include="node_modules\asynckit\lib\defer.js" />
+    <None Include="node_modules\asynckit\lib\iterate.js" />
+    <None Include="node_modules\asynckit\lib\readable_asynckit.js" />
+    <None Include="node_modules\asynckit\lib\readable_parallel.js" />
+    <None Include="node_modules\asynckit\lib\readable_serial.js" />
+    <None Include="node_modules\asynckit\lib\readable_serial_ordered.js" />
+    <None Include="node_modules\asynckit\lib\state.js" />
+    <None Include="node_modules\asynckit\lib\streamify.js" />
+    <None Include="node_modules\asynckit\lib\terminator.js" />
+    <None Include="node_modules\asynckit\LICENSE" />
+    <None Include="node_modules\asynckit\parallel.js" />
+    <None Include="node_modules\asynckit\README.md" />
+    <None Include="node_modules\asynckit\serial.js" />
+    <None Include="node_modules\asynckit\serialOrdered.js" />
+    <None Include="node_modules\asynckit\stream.js" />
+    <None Include="node_modules\axios\CHANGELOG.md" />
+    <None Include="node_modules\axios\dist\axios.js" />
+    <None Include="node_modules\axios\dist\axios.js.map" />
+    <None Include="node_modules\axios\dist\axios.min.js" />
+    <None Include="node_modules\axios\dist\axios.min.js.map" />
+    <None Include="node_modules\axios\dist\browser\axios.cjs" />
+    <None Include="node_modules\axios\dist\browser\axios.cjs.map" />
+    <None Include="node_modules\axios\dist\esm\axios.js" />
+    <None Include="node_modules\axios\dist\esm\axios.js.map" />
+    <None Include="node_modules\axios\dist\esm\axios.min.js" />
+    <None Include="node_modules\axios\dist\esm\axios.min.js.map" />
+    <None Include="node_modules\axios\dist\node\axios.cjs" />
+    <None Include="node_modules\axios\dist\node\axios.cjs.map" />
+    <None Include="node_modules\axios\index.d.cts" />
+    <None Include="node_modules\axios\index.js" />
+    <None Include="node_modules\axios\lib\adapters\adapters.js" />
+    <None Include="node_modules\axios\lib\adapters\http.js" />
+    <None Include="node_modules\axios\lib\adapters\README.md" />
+    <None Include="node_modules\axios\lib\adapters\xhr.js" />
+    <None Include="node_modules\axios\lib\axios.js" />
+    <None Include="node_modules\axios\lib\cancel\CanceledError.js" />
+    <None Include="node_modules\axios\lib\cancel\CancelToken.js" />
+    <None Include="node_modules\axios\lib\cancel\isCancel.js" />
+    <None Include="node_modules\axios\lib\core\Axios.js" />
+    <None Include="node_modules\axios\lib\core\AxiosError.js" />
+    <None Include="node_modules\axios\lib\core\AxiosHeaders.js" />
+    <None Include="node_modules\axios\lib\core\buildFullPath.js" />
+    <None Include="node_modules\axios\lib\core\dispatchRequest.js" />
+    <None Include="node_modules\axios\lib\core\InterceptorManager.js" />
+    <None Include="node_modules\axios\lib\core\mergeConfig.js" />
+    <None Include="node_modules\axios\lib\core\README.md" />
+    <None Include="node_modules\axios\lib\core\settle.js" />
+    <None Include="node_modules\axios\lib\core\transformData.js" />
+    <None Include="node_modules\axios\lib\defaults\index.js" />
+    <None Include="node_modules\axios\lib\defaults\transitional.js" />
+    <None Include="node_modules\axios\lib\env\classes\FormData.js" />
+    <None Include="node_modules\axios\lib\env\data.js" />
+    <None Include="node_modules\axios\lib\env\README.md" />
+    <None Include="node_modules\axios\lib\helpers\AxiosTransformStream.js" />
+    <None Include="node_modules\axios\lib\helpers\AxiosURLSearchParams.js" />
+    <None Include="node_modules\axios\lib\helpers\bind.js" />
+    <None Include="node_modules\axios\lib\helpers\buildURL.js" />
+    <None Include="node_modules\axios\lib\helpers\callbackify.js" />
+    <None Include="node_modules\axios\lib\helpers\combineURLs.js" />
+    <None Include="node_modules\axios\lib\helpers\cookies.js" />
+    <None Include="node_modules\axios\lib\helpers\deprecatedMethod.js" />
+    <None Include="node_modules\axios\lib\helpers\formDataToJSON.js" />
+    <None Include="node_modules\axios\lib\helpers\formDataToStream.js" />
+    <None Include="node_modules\axios\lib\helpers\fromDataURI.js" />
+    <None Include="node_modules\axios\lib\helpers\HttpStatusCode.js" />
+    <None Include="node_modules\axios\lib\helpers\isAbsoluteURL.js" />
+    <None Include="node_modules\axios\lib\helpers\isAxiosError.js" />
+    <None Include="node_modules\axios\lib\helpers\isURLSameOrigin.js" />
+    <None Include="node_modules\axios\lib\helpers\null.js" />
+    <None Include="node_modules\axios\lib\helpers\parseHeaders.js" />
+    <None Include="node_modules\axios\lib\helpers\parseProtocol.js" />
+    <None Include="node_modules\axios\lib\helpers\readBlob.js" />
+    <None Include="node_modules\axios\lib\helpers\README.md" />
+    <None Include="node_modules\axios\lib\helpers\speedometer.js" />
+    <None Include="node_modules\axios\lib\helpers\spread.js" />
+    <None Include="node_modules\axios\lib\helpers\throttle.js" />
+    <None Include="node_modules\axios\lib\helpers\toFormData.js" />
+    <None Include="node_modules\axios\lib\helpers\toURLEncodedForm.js" />
+    <None Include="node_modules\axios\lib\helpers\validator.js" />
+    <None Include="node_modules\axios\lib\helpers\ZlibHeaderTransformStream.js" />
+    <None Include="node_modules\axios\lib\platform\browser\classes\Blob.js" />
+    <None Include="node_modules\axios\lib\platform\browser\classes\FormData.js" />
+    <None Include="node_modules\axios\lib\platform\browser\classes\URLSearchParams.js" />
+    <None Include="node_modules\axios\lib\platform\browser\index.js" />
+    <None Include="node_modules\axios\lib\platform\index.js" />
+    <None Include="node_modules\axios\lib\platform\node\classes\FormData.js" />
+    <None Include="node_modules\axios\lib\platform\node\classes\URLSearchParams.js" />
+    <None Include="node_modules\axios\lib\platform\node\index.js" />
+    <None Include="node_modules\axios\lib\utils.js" />
+    <None Include="node_modules\axios\LICENSE" />
+    <None Include="node_modules\axios\MIGRATION_GUIDE.md" />
+    <None Include="node_modules\axios\README.md" />
+    <None Include="node_modules\axios\SECURITY.md" />
+    <None Include="node_modules\combined-stream\lib\combined_stream.js" />
+    <None Include="node_modules\combined-stream\License" />
+    <None Include="node_modules\combined-stream\Readme.md" />
+    <None Include="node_modules\combined-stream\yarn.lock" />
+    <None Include="node_modules\delayed-stream\.npmignore" />
+    <None Include="node_modules\delayed-stream\lib\delayed_stream.js" />
+    <None Include="node_modules\delayed-stream\License" />
+    <None Include="node_modules\delayed-stream\Makefile" />
+    <None Include="node_modules\delayed-stream\Readme.md" />
+    <None Include="node_modules\follow-redirects\debug.js" />
+    <None Include="node_modules\follow-redirects\http.js" />
+    <None Include="node_modules\follow-redirects\https.js" />
+    <None Include="node_modules\follow-redirects\index.js" />
+    <None Include="node_modules\follow-redirects\LICENSE" />
+    <None Include="node_modules\follow-redirects\README.md" />
+    <None Include="node_modules\form-data\lib\browser.js" />
+    <None Include="node_modules\form-data\lib\form_data.js" />
+    <None Include="node_modules\form-data\lib\populate.js" />
+    <None Include="node_modules\form-data\License" />
+    <None Include="node_modules\form-data\Readme.md" />
+    <None Include="node_modules\form-data\README.md.bak" />
+    <None Include="node_modules\mailtrap\CHANGELOG.md" />
+    <None Include="node_modules\mailtrap\dist\index.js" />
+    <None Include="node_modules\mailtrap\dist\lib\encodeMailBuffers.js" />
+    <None Include="node_modules\mailtrap\dist\lib\MailtrapError.js" />
+    <None Include="node_modules\mailtrap\dist\lib\types.js" />
+    <None Include="node_modules\mailtrap\README.md" />
+    <None Include="node_modules\mime-db\HISTORY.md" />
+    <None Include="node_modules\mime-db\index.js" />
+    <None Include="node_modules\mime-db\LICENSE" />
+    <None Include="node_modules\mime-db\README.md" />
+    <None Include="node_modules\mime-types\HISTORY.md" />
+    <None Include="node_modules\mime-types\index.js" />
+    <None Include="node_modules\mime-types\LICENSE" />
+    <None Include="node_modules\mime-types\README.md" />
+    <None Include="node_modules\proxy-from-env\.eslintrc" />
+    <None Include="node_modules\proxy-from-env\.travis.yml" />
+    <None Include="node_modules\proxy-from-env\index.js" />
+    <None Include="node_modules\proxy-from-env\LICENSE" />
+    <None Include="node_modules\proxy-from-env\README.md" />
+    <None Include="node_modules\proxy-from-env\test.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetEnv" Version="2.5.0" />
+    <PackageReference Include="DotNetEnv" Version="2.5.0" />
+    <PackageReference Include="MailKit" Version="4.1.0" />
+    <PackageReference Include="Npm" Version="3.5.2" />
+  </ItemGroup>
+
+</Project>

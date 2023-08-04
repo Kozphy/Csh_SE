@@ -1,0 +1,54 @@
+﻿.dialogue {
+  width: 0px;
+  height: 0px;
+  padding: 0px;
+  box-shadow: 0 0 10px #000;
+  background-color: #f4f5f7;
+  border-radius: 20px;
+  transition: all 1s;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.dialogue-show {
+  width: 500px;
+  padding: 20px;
+  height: 300px;
+}
+
+.chatUserInputSection {
+  display: none;
+}
+
+.chatUserInputSection-show {
+  display: flex;
+}
+
+.user {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.user .avatar {
+  width: 60px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.user .pic {
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user .pic img {
+  width: 100%;
+  vertical-align: middle;
+}
+.user .name {
+  color: #333;
+}
+.user .text {
+  background-color: #aaa;
+  padding: 16px;
+  border-radius: 10px;
+  position: relative;
+}

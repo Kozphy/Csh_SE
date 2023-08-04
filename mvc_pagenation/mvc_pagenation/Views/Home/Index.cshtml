@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DimProduct>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                 @Html.DisplayNameFor(model => model.ProductKey) 
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.ProductAlternateKey) 
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.EnglishProductName) 
+            </th>
+            <th>
+                 @Html.DisplayNameFor(model => model.SpanishProductName) 
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.ProductKey)</td>
+                <td>@Html.DisplayFor(model => item.ProductAlternateKey)</td>
+                <td>@Html.DisplayFor(model => item.EnglishProductName)</td>
+                <td>@Html.DisplayFor(model => item.SafetyStockLevel)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+ </ul>
+    
+  <button class="btn btn-primary lastPageBtn">Last Page</button>
+</nav>
+

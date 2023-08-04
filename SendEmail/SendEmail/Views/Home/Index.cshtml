@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="input-group">
+        <input type="email" class="input-group-text emailToWhere" />
+        <button type="button" class="btn btn-primary sendMailBtn">Send email</button>
+    </div>
+
+    <form method="post" asp-route="SendMail">
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input class="form-control" id="exampleInputEmail1" name="userEmail" value="" type="email">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+ </div>
+
+
+<h2>login</h2>
+    <form method="post" asp-route="Login" class="login_form">
+          <div class="mb-3">
+            <label for="LoginBox" class="form-label">帳號</label>
+            <input class="form-control" id="LoginBox" name="LoginText" value="" type="text">
+          </div>
+          <div class="mb-3">
+            <label for="PasswordBox" class="form-label">密碼</label>
+            <input class="form-control" id="PasswordBox" name="PasswordText" value="" type="password">
+          </div>
+           <div id="html_recaptcha" ></div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+<script type="text/javascript">
+  var onloadCallback = function() {
+        grecaptcha.enterprise.render('html_recaptcha', {
+            'sitekey': '6LctgbwmAAAAAAAmQPkFBggpXJwfl8hfBhV0wYUr',
+            'action': 'LOGIN'
+        });
+        let form_submit = document.querySelector(".login_form");
+        form_submit.addEventListener("submit",function(e){
+            if (grecaptcha.enterprise.getResponse() === '') {
+                e.preventDefault();
+                alert("please check recaptcha");
+            }
+        });
+
+  };
+</script>
+
+
+
+<script src="https://www.google.com/recaptcha/enterprise.js?onload=onloadCallback&render=explicit"
+        async defer></script>

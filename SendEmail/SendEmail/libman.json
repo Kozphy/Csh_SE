@@ -1,0 +1,42 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "unpkg",
+      "library": "mailtrap@3.1.1",
+      "destination": "wwwroot/lib/mailtrap/",
+      "files": [
+        "dist/lib/encodeMailBuffers.d.ts",
+        "dist/lib/encodeMailBuffers.js",
+        "dist/lib/MailtrapError.d.ts",
+        "dist/lib/MailtrapError.js",
+        "dist/lib/types.d.ts",
+        "dist/lib/types.js",
+        "dist/index.d.ts",
+        "dist/index.js",
+        "CHANGELOG.md",
+        "LICENSE.txt",
+        "package.json",
+        "README.md"
+      ]
+    },
+    {
+      "provider": "cdnjs",
+      "library": "axios@1.4.0",
+      "destination": "wwwroot/lib/axios/"
+    }
+  ,
+{
+  "provider": "cdnjs",
+  "library": "require.js@2.3.6",
+  "destination": "wwwroot/lib/require.js/"
+}
+,
+{
+  "provider": "cdnjs",
+  "library": "bootstrap@5.3.0",
+  "destination": "wwwroot/lib/bootstrap/"
+}
+]
+}

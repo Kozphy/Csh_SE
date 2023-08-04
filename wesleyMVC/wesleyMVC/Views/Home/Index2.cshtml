@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContentAccessor
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Home Page";
+    //
+    var varTitle = HttpContentAccessor.HttpContext.Session.GetString("Title_S");
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>@(ViewBag.Message)</p>
+    <p>@(ViewBag.Year)</p>
+    <p>
+        @*show session value*@
+        @Html.Raw(varTitle)
+    </p>
+    <p>@(Html.ActionLink("move to index", "Index", "Home"))</p>
+</div>
+
