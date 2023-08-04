@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "ECPAY/1.0.0": {
+        "dependencies": {
+          "ECPay.Payment.Integration": "1.0.0.8"
+        },
+        "runtime": {
+          "ECPAY.dll": {}
+        }
+      },
+      "ECPay.Payment.Integration/1.0.0.8": {
+        "runtime": {
+          "lib/net45/ECPay.Payment.Integration.dll": {
+            "assemblyVersion": "1.0.0.8",
+            "fileVersion": "1.0.0.8"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ECPAY/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ECPay.Payment.Integration/1.0.0.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TJ6XSwES6sZtLJN2opoSdSMghbj3Yw07PyqDdLUaRwfnTZDiuVB2T7GPG3XMhiR+YOhLVeU4rWF+ttiJcQ6yBw==",
+      "path": "ecpay.payment.integration/1.0.0.8",
+      "hashPath": "ecpay.payment.integration.1.0.0.8.nupkg.sha512"
+    }
+  }
+}

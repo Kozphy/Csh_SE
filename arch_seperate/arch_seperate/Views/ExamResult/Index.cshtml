@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ExamResult>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form class="mb-3" method="get" asp-controller="ExamResult" asp-action="GetSomeAsync">
+    <input type="text" name="studentName" />
+    <button type="submit">get Some of Exam</button>
+</form>
+
+<form class="mb-3" method="get" asp-controller="ExamResult" asp-action="GetOneStudent">
+    <label for="studentName">studentName</label>
+    <input id="studentName" type="text" name="studentName" />
+    <label for="subject">subject</label>
+    <input type="text" name="subject" />
+    <label for="marks">marks</label>
+    <input id="marks" type="text" name="marks" />
+    <button type="submit">get One of studentName</button>
+</form>
+
+<form method="post" asp-action="Modified">
+    <label for="studentName">studentName</label>
+    <input id="studentName" type="text" name="studentName" />
+    <label for="subject">subject</label>
+    <input id="subject" type="text" name="subject" />
+    <label for="marks">marks</label>
+    <input id="marks" type="text" name="marks" />
+    <button type="submit">Modified</button>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marks)
+            </th>
+        </tr>
+
+    </thead>
+    <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.StudentName
+                    </td>     
+                    <td>
+                        @item.Subject
+                    </td>
+                    <td>
+                        @item.Marks
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>

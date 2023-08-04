@@ -1,0 +1,15 @@
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\bin\Debug\net6.0\FilelOc.exe
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\bin\Debug\net6.0\FilelOc.deps.json
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\bin\Debug\net6.0\FilelOc.runtimeconfig.json
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\bin\Debug\net6.0\FilelOc.dll
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\bin\Debug\net6.0\FilelOc.pdb
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.csproj.AssemblyReference.cache
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.AssemblyInfoInputs.cache
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.AssemblyInfo.cs
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.csproj.CoreCompileInputs.cache
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.dll
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\refint\FilelOc.dll
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.pdb
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\FilelOc.genruntimeconfig.cache
+C:\Users\dbdf0\source\repos\C_sh_l\FilelOc\obj\Debug\net6.0\ref\FilelOc.dll

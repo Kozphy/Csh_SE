@@ -1,0 +1,15 @@
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\bin\Debug\net6.0\C_sharp_course.exe
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\bin\Debug\net6.0\C_sharp_course.deps.json
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\bin\Debug\net6.0\C_sharp_course.runtimeconfig.json
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\bin\Debug\net6.0\C_sharp_course.dll
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\bin\Debug\net6.0\C_sharp_course.pdb
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.csproj.AssemblyReference.cache
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.AssemblyInfoInputs.cache
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.AssemblyInfo.cs
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.csproj.CoreCompileInputs.cache
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.dll
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\refint\C_sharp_course.dll
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.pdb
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\C_sharp_course.genruntimeconfig.cache
+C:\Users\dbdf0\source\repos\C_sh_l\C_sharp_course\C_sharp_course\obj\Debug\net6.0\ref\C_sharp_course.dll

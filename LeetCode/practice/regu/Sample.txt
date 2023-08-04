@@ -1,0 +1,35 @@
+﻿1234567890
+			
+202-555-0102
+202-555-0196
+202.555.0196
+202#555#0196
+0175/12345678
++49165/12312347
+0049165/12312347
+
+abcdefghijklmnopqurtuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+LaLa La La LaLa
+MetaCharacters\s\(\w+\s\w+\s\w+\s\w+\):\r\
+Mr. Panjuta
+Mr Muller
+Mr Robertson
+Mr. G
+Ms Smith
+Ms Jackson
+
+// http(s)?://(www.)?(\w)*.eu
+// Challenge - find website links
+https://www.tutorials.eu
+https://tutorials.eu
+http://www.tutorials.eu
+http://tutorials.eu
+
+// \w+@\w+\.\w+
+test@test.com
+
+// MetaCharacters\s\(\w+\s\w+\s\w+\s\w+\):\r\n [.\[{()\\^$|?*+V]
+MetaCharacters (Need to be escaped):
+.[{()\^$|?*+V
