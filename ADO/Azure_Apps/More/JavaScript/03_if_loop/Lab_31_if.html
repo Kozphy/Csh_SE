@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .task-description,
+        .list-group {
+            font-size: 1.25em;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>JavaScript 語法練習</h1>
+    <ul id="latestNews" class="list-group">
+        <li class="list-group-item">請完成猜數字遊戲的程式</li>
+        <li class="list-group-item">使用者輸入數字後，提示他(她)應該高一點或低一點</li>
+    </ul>
+
+    <div class="form-group task-description">
+        <label for="textBox1">A. 輸入資料</label>
+        <input type="text" 
+               id="textBox1" value="50"
+               class="form-control" />
+    </div>
+    <button type="button" 
+        id="okButton" 
+        class="btn btn-success">
+        B. 點按按鈕執行程式
+    </button>
+
+    <p class="task-description">C. 檢視結果:</p>
+    <div id="report" class="task-description">
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+
+    var answer = Math.floor(Math.random() * 100);
+    report.innerHTML += answer + "<br>";
+
+    $("#okButton").on('click', function () {
+        var userKeyin = textBox1.value;
+        var prompt = "";
+
+        // 請完成猜數字遊戲的程式, 參考答案附於稍後
+        // 使用者輸入數字後，提示他(她)應該高一點或低一點
+
+
+
+        report.innerHTML += prompt + "<br>";
+
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // if (userKeyin > answer) {
+        //     prompt = "lower please";
+        // }
+        // else if (userKeyin < answer) {
+        //     prompt = "higher please";
+        // }
+        // else {
+        //     prompt = "correct!";
+        // }
+
+
+
+</script>
+            
+</body>
+</html>

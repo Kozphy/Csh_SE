@@ -1,0 +1,18 @@
+# 建議順序
+
+Lab_Controller
+Lab_Controller_PassDataToView
+Lab_View_Razor
+Lab_View_Layout
+Lab_View_Helper
+
+
+<Note>
+如果你是在 Visual Studio 2022 而非 Visual 2019 進行練習，
+透過 Install-Package 安裝套件時，可能會遇到 6.x 與 5.x 版
+本不相容的錯誤訊息。請在安裝指令之後加上 -version 5 
+
+例如:
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+改成:
+Install-Package Microsoft.EntityFrameworkCore.SqlServer -version 5

@@ -1,0 +1,44 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+    <hr />
+    <div id="debug2"></div>
+    <hr />
+    <div id="debug3"></div>
+
+    <script>
+        //運算子包含一元運算子如 square：
+        const d = tf.tensor2d([[1.0, 2.0], [3.0, 4.0]]);
+        const d_squared = d.square();
+        debug.innerText = d_squared;
+        // 輸出： [[1, 4 ],
+        //        [9, 16]]
+
+        //二元運算子像 add、sub、mul：
+        const e = tf.tensor2d([[1.0, 2.0], [3.0, 4.0]]);
+        const f = tf.tensor2d([[5.0, 6.0], [7.0, 8.0]]);
+        const e_plus_f = e.add(f);
+        debug2.innerText = e_plus_f;
+        // 輸出： [[6 , 8 ],
+        //        [10, 12]]
+
+        // 鏈結 API；你可以在運算子的結果再次呼叫運算子：
+        const sq_sum = e.add(f).square();
+        debug3.innerText = sq_sum;
+            // 輸出： [[36 , 64 ],
+            //        [100, 144]]
+
+        // 所有的運算方法也為主要命名空間中的函數公開
+        // 所以你可以這樣操作：
+        // const sq_sum = tf.square(tf.add(e, f));
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+Lab: Azure 語音應用 -- 使用 Node.js 將文字轉換為語音
+
+
+1.  訂閱語音 API 服務並取得金鑰
+
+
+1.1 登入 Azure 入口網站
+    https://portal.azure.com/
+
+
+1.2 新增資源群組: lab0923ResourceGroup
+
+    <Hint>
+    資源群組 | 新增 | 
+    資源群組:lab0923ResourceGroup
+    區域: (亞太地區)東南亞
+
+
+1.3 訂閱語音 API 服務並取得金鑰
+
+    <Hint>
+    Azure 入口網站 | 左上角 | + 建立資源 | 搜尋:語音 (或: Speech)
+    名稱: lab0923Speech
+    位置: (亞太地區)東南亞
+    定價層: F0
+    資源群組:lab0923ResourceGroup
+
+
+
+2.  文字轉語音
+
+
+2.1 在本資料夾建立新的 JavaScript 檔案，檔名: index.js，
+    內容如下:
+
+var sdk = require("microsoft-cognitiveservices-speech-sdk");
+var subscriptionKey = "你的speech金鑰";
+var serviceRegion = "southeastasia";
+var filename = "YourAudioFile.wav";
+var text = "Hello! It's good to see you.";
+
+var audioConfig = sdk.AudioConfig.fromAudioFileOutput(filename);
+var speechConfig = sdk.SpeechConfig.fromSubscription(subscriptionKey, serviceRegion);
+
+
+var synthesizer = new sdk.SpeechSynthesizer(speechConfig, audioConfig);
+synthesizer.speakTextAsync(
+    text,
+    function (result) {
+        if (result.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
+            console.log("synthesis finished.");
+        } else {
+            console.error("Speech synthesis canceled, " + result.errorDetails +
+                "\nDid you update the subscription info?");
+        }
+        synthesizer.close();
+        synthesizer = undefined;
+    },
+    function (err) {
+        console.trace("err - " + err);
+        synthesizer.close();
+        synthesizer = undefined;
+    }
+);
+
+
+2.2 找出下列這行，代入你的金鑰:
+    var subscriptionKey = "你的speech金鑰"; 
+
+
+2.3 滑鼠右鍵點按 Lab_TTS_SDK | Open in Integrated Terminal
+    輸入下列指令安裝必要套件:
+npm install microsoft-cognitiveservices-speech-sdk
+
+
+2.4 輸入下列指令以測試程式:
+node index.js
+
+
+2.5 聽聽看 YourAudioFile.wav 的內容。
+
+
+
+
+3.  修改 text 變數的內容為:
+    問渠哪得清如許, 為有源頭活水來
+
+
+3.1 請問程式要怎麼改，才能讀出中文?
+
+
+3.2 如何改用其他人聲?
+
+《提示參考文件》
+https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support
+
+

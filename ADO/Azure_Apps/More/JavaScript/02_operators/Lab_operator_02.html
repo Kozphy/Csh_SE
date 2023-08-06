@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .task-description,
+        .list-group {
+            font-size: 1.25em;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>JavaScript 語法練習</h1>
+    <ul id="latestNews" class="list-group">
+        <li class="list-group-item">先不執行按鈕程式，檢視程式原始碼</li>
+        <li class="list-group-item">假裝自己是電腦，推估一下程式的結果。</li>
+        <li class="list-group-item">加不加雙引號，有沒有差別?</li>
+    </ul>
+
+    <button type="button" 
+        id="okButton" 
+        class="btn btn-success">
+        A. 點按按鈕執行程式
+    </button>
+
+    <p class="task-description">B. 檢視結果:</p>
+    <div id="report" class="task-description">
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+    $("#okButton").on('click', function () {
+        var x = 100;
+        var y = x;
+        var z = "x";
+        // var z = 'x';  // 這麼寫也是字串
+
+        report.innerHTML += `y = ${y} <br>`;
+        report.innerHTML += `z = ${z} <br>`;
+    })
+
+})
+
+</script>
+            
+</body>
+</html>

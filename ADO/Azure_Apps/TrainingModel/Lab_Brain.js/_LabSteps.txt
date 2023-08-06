@@ -1,0 +1,147 @@
+﻿Lab: 以 Braing.js 採用監督式學習訓練模型
+
+<Note>
+本課堂習作的創意與資料源自 Anthony Krivonos 的作品，原文網址如下:
+Machine Learning in 5 Minutes with brain.js!
+https://www.linkedin.com/pulse/machine-learning-5-minutes-brainjs-anthony-krivonos
+我修改成在瀏覽器中執行。
+
+
+1.  準備工作與軟體安裝
+
+
+1.1	在本資料夾建立新檔案，檔名: index.html，內容如下:
+    <Hint>
+    滑鼠右鍵 Lab_Brain.js 資料夾 | New File
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="page-header">
+                <h1>Brain.js Lab</h1>
+            </div>
+        </div>
+    </div>
+    
+    <form class="form-horizontal">
+    <fieldset>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="james">James Points:</label>  
+            <div class="col-md-4">
+            <input id="james" value="68" name="james" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="others">Rest of the Cavs</label>  
+            <div class="col-md-4">
+            <input id="others" value="24" name="others" type="text" placeholder="" class="form-control input-md">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="okButton"></label>
+            <div class="col-md-4">
+            <button type="button" id="okButton" name="okButton" class="btn btn-primary">Next Game Win / Loss?</button>
+            </div>
+        </div>
+        
+    </fieldset>
+    </form>
+
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div class="page-header">
+                <h1 id="result"></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+
+
+
+</script>
+            
+</body>
+</html>
+
+
+1.2 在 </head> 前一列，加入下列 script 元素，引用 Brain.js:
+    <script src="//unpkg.com/brain.js"></script>
+
+
+    <Note> Brain.js:
+    https://github.com/BrainJS/brain.js
+
+
+
+
+2.0 訓練模型
+
+
+2.1 在 HTML 檔案結尾處的 script 區塊，加入下列程式:
+    let model = new brain.NeuralNetwork();
+
+
+2.2 繼續加入下列程式:
+
+    model.train([
+        { input: { lebron: 32, restOfTeam: 64 }, output: { win: 1, loss: 0 } },
+        { input: { lebron: 24, restOfTeam: 67 }, output: { win: 0, loss: 1 } },
+        { input: { lebron: 36, restOfTeam: 58 }, output: { win: 1, loss: 0 } },
+        { input: { lebron: 20, restOfTeam: 81 }, output: { win: 0, loss: 1 } },
+        { input: { lebron: 51, restOfTeam: 58 }, output: { win: 0, loss: 1 } },
+        { input: { lebron: 33, restOfTeam: 46 }, output: { win: 1, loss: 0 } },
+        { input: { lebron: 28, restOfTeam: 55 }, output: { win: 1, loss: 0 } },
+        { input: { lebron: 25, restOfTeam: 77 }, output: { win: 0, loss: 1 } },
+        { input: { lebron: 49, restOfTeam: 63 }, output: { win: 1, loss: 0 } },
+        { input: { lebron: 38, restOfTeam: 68 }, output: { win: 1, loss: 0 } }
+    ]);
+
+
+
+
+3.  以模型預測結果
+
+3.1 繼續在 HTML 檔案結尾處的 script 區塊，加入下列程式:
+
+    $("#okButton").on('click', function () {
+        
+        let evalData = {
+            lebron: $("#james").val(),
+            restOfTeam: $("#others").val()
+        };
+
+        let evalResult = model.run(evalData);
+        $("#result").text( evalResult.win );
+    })
+
+
+3.2 在瀏覽器試用作品。
+
+    <Hint>
+    在 HTML 文件編輯區，滑鼠右鍵 | Open with Live Server
+
+

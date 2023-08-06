@@ -1,0 +1,37 @@
+﻿How Machines Learn
+https://www.youtube.com/watch?v=R9OHn5ZF4Uo
+
+The 7 Steps of Machine Learning (AI Adventures)
+https://www.youtube.com/watch?v=nKW8Ndu7Mjw
+
+究竟神經網路是什麼？ 第一章 深度學習
+https://www.youtube.com/watch?v=aircAruvnKk
+
+梯度下降，神經網絡如何學習
+https://www.youtube.com/watch?v=IHZwWFHWa-w
+
+什麼是反向傳播演算法？
+https://www.youtube.com/watch?v=Ilg3gGewQ5U
+
+張智皓／轉彎或直行？台灣AI倫理學計畫，需要你的道德判斷
+https://opinion.udn.com/opinion/story/6685/3599097
+
+想學機器學習應該準備具備哪些數學知識？
+https://buzzorange.com/techorange/2017/11/09/how-to-learn-machine-learning/
+
+遞歸神經網路（RNN）和長短期記憶模型（LSTM）的運作原理
+https://brohrer.mcknote.com/zh-Hant/how_machine_learning_works/how_rnns_lstm_work.html
+
+
+
+
+讓 AI 寫點金庸：如何用 TensorFlow 2.0 及 TensorFlow.js 寫天龍八部
+https://leemeng.tw/how-to-generate-interesting-text-with-tensorflow2-and-tensorflow-js.html
+
+少女詩人小冰
+https://poem.xiaoice.com/
+
+ChatGPT:
+https://openai.com/blog/chatgpt
+
+

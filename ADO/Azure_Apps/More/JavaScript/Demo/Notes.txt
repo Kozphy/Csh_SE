@@ -1,0 +1,50 @@
+為什麼學習程式設計? 解決問題、創造價值。
+Eight: Business Cards
+https://www.youtube.com/watch?v=gpM_rnQBCr0
+
+
+要解決問題，就觸及方法與步驟
+人腦也可以執行演算法 - David J. Malan (有中文字幕)
+https://www.youtube.com/watch?v=6hfOvs8pY1k
+
+
+觀看影片的前兩分鐘，暫停，我們來討論一下演算法: (有中文字幕)
+Can you solve the bridge riddle? - Alex Gendler
+https://www.youtube.com/watch?v=7yDmGnA8Hw0
+解答:
+https://www.youtube.com/watch?v=7yDmGnA8Hw0&t=120
+
+
+前端工程師要學程式設計嗎? 讓我們來看看這些網站:
+
+- https://qiao.github.io/PathFinding.js/visual/
+
+- https://d3js.org/
+  例如: https://bl.ocks.org/mbostock/4061961
+
+
+【課後閱讀】
+
+最速排序法: (自動翻譯字幕)
+What's the fastest way to alphabetize your bookshelf? - Chand John
+https://www.youtube.com/watch?v=WaNLJf8xzC4
+
+
+Sorting Algorithms Dance
+https://www.youtube.com/playlist?list=PLuE79vNc5Wi6q34LsQcaJ7ISQ8uOyMaL_
+
+
+前端工程興起後的程式設計分工
+http://www.ithome.com.tw/node/83410
+
+
+asp.net Web開發框架 (2) - 基本SPA架構
+http://studyhost.blogspot.tw/2016/12/aspnet-web-2-spa.html
+
+
+演算法 Algorithms
+授課教師: 江蕙如老師
+http://ocw.nctu.edu.tw/course_detail.php?bgid=8&gid=0&nid=493#.V-K8ZSh96hd
+
+
+

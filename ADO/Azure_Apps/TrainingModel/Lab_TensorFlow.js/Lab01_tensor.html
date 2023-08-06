@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+    <hr />
+    <div id="debug2"></div>
+
+
+    <script>
+        // 2x3 的張量
+        const shape = [2, 3]; // 2 行 3 列
+        const a = tf.tensor([1.0, 2.0, 3.0, 10.0, 20.0, 30.0], shape);
+        debug.innerText = a;
+        // 輸出： [[1 , 2 , 3 ],
+        //        [10, 20, 30]]
+
+        // 形狀也可以被推理出來：
+        const b = tf.tensor([[1.0, 2.0, 3.0], [10.0, 20.0, 30.0]]);
+        debug2.innerText = b;
+    </script>
+</body>
+</html>

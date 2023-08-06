@@ -1,0 +1,38 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+
+    <script>
+        // 定義函數
+        function predict(input) {
+            // y = a * x ^ 2 + b * x + c
+            // 下個部分會再詳細講 tf.tify
+            return tf.tidy(() => {
+                const x = tf.scalar(input);
+
+                const ax2 = a.mul(x.square());
+                const bx = b.mul(x);
+                const y = ax2.add(bx).add(c);
+
+                return y;
+            });
+        }
+
+        // 定義係數： y = 2x^2 + 4x + 8
+        const a = tf.scalar(2);
+        const b = tf.scalar(4);
+        const c = tf.scalar(8);
+
+        // 輸入 2 ，預測輸出
+        const result = predict(2);
+
+        debug.innerText = result;
+    </script>
+</body>
+</html>

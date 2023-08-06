@@ -1,0 +1,138 @@
+﻿// --------------------------------------------------
+// 010: Prepare
+
+<div id="debug"></div>
+
+
+
+
+// --------------------------------------------------
+// 110	物件（一）
+// 請觀察 A 與 B 的寫法
+
+<script>
+
+	var obj = new Object();  // A
+	var obj = {};  // B
+	obj.firstName = "Wolfgang";
+	obj.lastName = "Chien";
+	obj.sayHello = function () {
+		debug.innerHTML += "Hello! <br>";	
+	};
+
+	debug.innerHTML = obj.firstName + "<br>";
+
+	obj.sayHello();
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 120	物件（二）
+// 請觀察這種寫法：
+
+<script>
+
+	var obj = {
+		"firstName": "Wolfgang",
+		"lastName": "Chien"
+	};
+	debug.innerHTML = obj.firstName + " " + obj.lastName;
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 130	JSON （掃瞄記憶體內容，擷取出 JSON 格式的字串）
+// 請閱讀 A 段程式的寫法，試著在紙上畫出你對於該資料結構的想像。
+// 觀察程式的執行結果。
+
+<script>
+
+	// A. 物件陣列，用中括號框住一組以 JSON 格式表現的物件
+	var objArray = [
+		{"firstName":"Derek", "lastName":"Jeter"}, 
+		{"firstName":"Jeremy", "lastName":"Lin"}, 
+		{"firstName":"Lionel", "lastName":"Messi"}
+	];
+
+	debug.innerText = JSON.stringify(objArray);
+	// B: [{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 140	JSON （將JSON 格式的字串轉換成記憶體資料）
+// 請閱讀  s 字串的內容與格式
+// JSON.stringify() 與 JSON.parse() 的功能是什麼?
+
+<script>
+
+	var s = '[{"firstName":"Derek","lastName":"Jeter"},{"firstName":"Jeremy","lastName":"Lin"},{"firstName":"Lionel","lastName":"Messi"}]';
+	var objArray = JSON.parse(s);
+	debug.innerHTML = objArray[2].lastName + "<br>";
+
+</script>
+
+
+
+
+// --------------------------------------------------
+// 150	JavaScipt 的函式也是物件（一）
+
+    <script>
+
+        function Box() {
+            this.color = 'black';
+            this.paint = function (value) {
+                this.color = value;
+            }
+        }
+
+        var objBox = new Box();
+        objBox.paint("Blue");
+        debug.innerHTML = objBox.color;
+
+    </script>
+
+
+
+// --------------------------------------------------
+// 160	回呼函式 Callback function
+// 想想看，應該要等到上漆完成之後，再去讀取顏色的值，
+// 才是正確的順序，所以，程式改成這樣：
+
+    <script>
+
+        Box = function () {
+            this.color = 'black';
+            this.paint = function (value, cb) {
+                // delay 3 seconds.
+                //var now = new Date().getTime();
+                //while (new Date().getTime() < now + 3000) { 
+                //	/* do nothing */ 
+                //} 
+                this.color = value;
+                cb();
+            }
+        }
+
+
+        var objBox = new Box();
+        objBox.paint("RoyalBlue", function () {
+            debug.innerHTML = objBox.color;
+        });
+
+
+    </script>
+
+
+
+

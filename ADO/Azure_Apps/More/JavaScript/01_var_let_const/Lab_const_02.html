@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .task-description,
+        .list-group {
+            font-size: 1.25em;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>JavaScript 語法練習</h1>
+    <ul id="latestNews" class="list-group">
+        <li class="list-group-item">如果還沒學過陣列，可以先跳過本題。(稍後再回來作答)</li>
+        <li class="list-group-item">第二次寫 dataList = 的那一行，語法錯在哪裡?</li>
+    </ul>
+
+    <button type="button" 
+        id="okButton" 
+        class="btn btn-success">
+        A. 點按按鈕執行程式
+    </button>
+
+    <p class="task-description">B. 檢視結果:</p>
+    <div id="report" class="task-description">
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+    $("#okButton").on('click', function () {
+
+        const dataList = ["A", "B", "C", "D"];
+        dataList[2] = "C4";
+
+        // dataList = ["A", "B", "C4", "D"];
+
+        report.innerHTML = dataList.toString();
+    })
+
+})
+
+</script>
+            
+</body>
+</html>

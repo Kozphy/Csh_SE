@@ -1,0 +1,94 @@
+<!-- 本範例源自於 https://scrimba.com/g/gneuralnetworks -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="//unpkg.com/brain.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="page-header">
+        <h1>Lab</h1>
+    </div>
+    
+    <form class="form-horizontal">
+    <fieldset>
+        <div class="form-group">
+            <div class="col-md-4">
+            <button type="button" id="startButton" class="btn btn-primary">
+                Start
+            </button>
+            </div>
+        </div>
+    </fieldset>
+    </form>
+
+    <div class="row">
+    <div class="col-sm-12">
+    <ul id="reportHere" class="list-group">
+    </ul>
+    </div>
+    </div>
+</div>
+
+
+<script>
+
+$(document).ready(function () {
+
+    var report = function (lineData) {
+        $("<li></li>")
+            .text(lineData).addClass("list-group-item")
+            .appendTo("#reportHere");
+    }
+
+    $("#startButton").on("click", function () {
+
+        const trainingData = [
+            { input: { blue: 1 },  output: [1] },
+            { input: { red: 1 },   output: [1] },
+            { input: { black: 1 }, output: [0] },
+            { input: { green: 1 }, output: [0] },
+            { input: { brown: 1 }, output: [0] }
+        ];
+
+        const net = new brain.NeuralNetwork();
+
+        net.train(trainingData, {
+            log: (status) => report(status)
+        });
+
+        report( net.run({blue: 1}) );
+        report( net.run({brown: 1}) );
+        
+        report( "===============" );
+
+        trainingData.pop();
+        trainingData.push(
+            {input: { brown: 1}, output: [1] }            
+        );
+
+        net.train(trainingData, {
+            log: (status) => report(status)
+        });
+        report( net.run({brown: 1}) );
+
+
+
+
+    });
+
+})
+
+</script>
+            
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+    <div id="debug"></div>
+    
+    <script>
+        "use strict";
+
+        function showLocation () {
+            // console.log(this);  // undefined
+            debug.innerText = this.location;
+        } 
+        showLocation();  
+
+        // var showLocation = function () {
+        //     console.log(this);
+        //     debug.innerText = this.location;
+        // } 
+        // showLocation = showLocation.bind(window);
+        // showLocation();
+
+        // var showLocation = () => {
+        //     console.log(this);
+        //     debug.innerText = this.location;
+        // } 
+        // showLocation();
+
+    </script>
+    
+</body>
+</html>
+
+

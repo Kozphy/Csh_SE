@@ -1,0 +1,21 @@
+﻿# 上課環境的軟體清單與下載網址
+
+
+1.  Visual Studio Code
+    https://code.visualstudio.com/
+
+
+2.  在 Visual Studio Code 安裝套件
+    Live Server (ritwickdey.liveserver)
+
+    <Hint>
+    點按 VS Code 左邊側邊工具的第五個(方形那個)圖示，
+    輸入關鍵字，例如: Live
+
+
+3.  Node.js
+    https://nodejs.org
+
+    <Note>選擇 LTS 版本
+
+

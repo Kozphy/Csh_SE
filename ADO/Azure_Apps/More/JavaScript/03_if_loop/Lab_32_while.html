@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .task-description,
+        .list-group {
+            font-size: 1.25em;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>JavaScript 語法練習</h1>
+    <ul id="latestNews" class="list-group">
+        <li class="list-group-item">請用 for 迴圈的語法重寫一遍</li>
+        <li class="list-group-item">如果只計算奇數，程式要怎麼改?</li>
+    </ul>
+
+    <button type="button" 
+        id="okButton" 
+        class="btn btn-success">
+        A. 點按按鈕執行程式
+    </button>
+
+    <p class="task-description">B. 檢視結果:</p>
+    <div id="report" class="task-description">
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+
+    $("#okButton").on('click', function () {
+        var total = 0;
+        var i = 1;
+        while (i <= 5) {
+            total += i;
+            i++;
+        }
+        report.innerHTML += `A, total = ${total} <br>`;
+        // 請用 for 迴圈的語法重寫一遍, 參考答案附於稍後
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // var total = 0;
+        // for (let i = 1; i <= 5; i++) {
+        //     total += i;
+        // }
+        // report.innerHTML += `B, total = ${total} <br>`;
+
+        // var total = 0;
+        // for (let i = 1; i <= 5; i+=2) {
+        //     total += i;
+        // }
+        // report.innerHTML += `C, total = ${total} <br>`;
+
+    })
+})
+
+</script>
+            
+</body>
+</html>

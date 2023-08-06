@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lab</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        .task-description,
+        .list-group {
+            font-size: 1.25em;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>JavaScript 語法練習</h1>
+    <ul id="latestNews" class="list-group">
+        <li class="list-group-item">修改 var userName 改成 UserName，請問程式為何無法執行?</li>
+        <li class="list-group-item">Chrome瀏覽器為例，Ctrl+Shift+I，檢視 Console 的說明</li>
+        <li class="list-group-item">請問 Camel 命名法是什麼?</li>
+    </ul>
+
+    <div class="form-group task-description">
+        <label for="textBox1">A. 輸入資料</label>
+        <input type="text" 
+               id="textBox1" value="World"
+               class="form-control" />
+    </div>
+    <button type="button" 
+        id="okButton" 
+        class="btn btn-success">
+        B. 點按按鈕執行程式
+    </button>
+
+    <p class="task-description">C. 檢視結果:</p>
+    <div id="report" class="task-description">
+    </div>
+
+</div>
+
+<script>
+
+$(document).ready(function () {
+    $("#okButton").on('click', function () {
+        var userName = textBox1.value;
+
+        report.innerText = "Hello! " + userName;
+
+    })
+})
+
+</script>
+            
+</body>
+</html>

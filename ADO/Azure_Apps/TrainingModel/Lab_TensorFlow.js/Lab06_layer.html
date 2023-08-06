@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+
+    <script>
+        // 註: 本例並不完整，請改以下列文章實作或先跳過:
+        // https://medium.freecodecamp.org/get-to-know-tensorflow-js-in-7-minutes-afcd0dfd3d2f
+
+        const model = tf.sequential();
+        model.add(
+            tf.layers.simpleRNN({
+                units: 20,
+                recurrentInitializer: 'GlorotNormal',
+                inputShape: [80, 4]
+            })
+        );
+
+        const optimizer = tf.train.sgd(LEARNING_RATE);
+        model.compile({ optimizer, loss: 'categoricalCrossentropy' });
+        model.fit({ x: data, y: labels});
+
+        // debug.innerText = result;
+    </script>
+</body>
+</html>

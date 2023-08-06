@@ -1,0 +1,391 @@
+﻿Lab: 以卷積神經網路辨識手寫數字
+
+<Note>
+本課堂習作改編自 Sebastian Eschweiler 的作品，原文如下:
+https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
+
+<Note>
+data.js 為 TensofFlow.js 官方範例提供的 MNIST 圖檔下載程式。程式出處:
+https://github.com/NoobTW/tfjs-tutorials/blob/master/tutorials/mnist.md
+
+
+
+
+0.	預備知識:
+
+初探卷積神經網路
+https://chtseng.wordpress.com/2017/09/12/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A9%8D%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF/
+
+A Beginner's Guide To Understanding Convolutional Neural Networks
+https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/
+https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/
+
+
+
+
+1	設定與安裝
+
+
+1.1	滑鼠右鍵點按 Lab_CNN_NodeJS 資料夾 | Open in Integrated Terminal
+    
+    <Note>
+    請確認終端機的工作目錄是 Lab_CNN_NodeJS
+
+
+1.2 輸入 npm install 並按下 <enter> 鍵
+
+
+1.3 以文字編輯器打開 public/index.html
+    檢視一下目前的 HTML 與 JavaScript
+
+
+1.4 找到 <head> 區的 <!-- TansorFlow.js --> 註解，
+    在該處加入下列內容，完成後，儲存檔案。
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.5.0"> </script>
+
+
+1.5 輸入 npm start 啟動 Web Server
+
+
+1.6 以瀏覽器瀏覽 http://localhost:3000
+    <Note>
+    目前檢視的文件是 public/index.html
+
+
+1.7 請問 HTML 文件引用了哪些 JavaScript ?
+
+
+
+
+2.	建立 model
+
+
+2.1	在 </script> 前一行，貼入下列程式:
+
+        function createModel() {
+            createLogEntry('Create model ...');
+            model = tf.sequential();
+            createLogEntry('Model created');
+
+        }
+
+
+2.2	繼續加寫下列程式:
+        async function trainModelAndSaveModel() {
+            createLogEntry("Start...");
+            createModel()
+        }   
+
+
+2.3	在瀏覽器中檢視目前進度，點按「Train﹞」按鈕後，
+    Log Output 應該會出現:
+	Start...
+	Create model ...
+	Model created
+
+<Question> 什麼是 model ?
+
+<Question> 
+tf.sequential() 建立的是怎樣的神經網路?
+各層之間的關係如何?
+
+
+
+
+3.	定義卷積網路的各個神經層
+
+
+3.1	在 createModel() 加進下列程式以定義第一層卷積網路神經層:
+
+            createLogEntry('Add layers ...');
+            model.add(tf.layers.conv2d({
+                inputShape: [28, 28, 1],
+                kernelSize: 5,
+                filters: 8,
+                strides: 1,
+                activation: 'relu',
+                kernelInitializer: 'VarianceScaling'
+            }));
+
+<Note> 餵入我們卷積網路的手寫圖片將是 28x28，單色。
+
+<Question> kernelSize、filters、strides 各參數分別在設定什麼?
+
+<Question> relu 是怎麼做的?
+
+
+3.2	在 createModel() 加進下列程式以定義 maxPooling 層:
+
+            model.add(tf.layers.maxPooling2d({
+                poolSize: [2, 2],
+                strides: [2, 2]
+            }));
+
+<Question> pooling 是什麼?
+
+<Question> poolSize、strides 各參數分別在設定什麼?
+
+
+3.3	在 createModel() 加進下列程式定義第二層卷積網路神經層:
+
+            model.add(tf.layers.conv2d({
+                kernelSize: 5,
+                filters: 16,
+                strides: 1,
+                activation: 'relu',
+                kernelInitializer: 'VarianceScaling'
+            }));
+
+
+3.4	在 createModel() 再加進第二個 maxPooling 層:
+
+            model.add(tf.layers.maxPooling2d({
+                poolSize: [2, 2],
+                strides: [2, 2]
+            }));
+
+
+3.5	在 createModel() 銜接 CNN 網路到全連接層網路:
+            model.add(tf.layers.flatten());
+            model.add(tf.layers.dense({
+                units: 10,
+                kernelInitializer: 'VarianceScaling',
+                activation: 'softmax'
+            }));
+            createLogEntry('Layers created');
+
+
+3.6	在 createModel() 加寫下列程式:
+
+            createLogEntry('Start compiling ...');
+            model.compile({
+                optimizer: tf.train.sgd(0.15),
+                loss: 'categoricalCrossentropy'
+            });
+            createLogEntry('Compiled');
+
+<Question> 
+?! tf.train.sgd() !? 
+請試著描述梯度下降法與損失函數的作用以及它們在訓練過程的關聯
+
+
+3.7	在瀏覽器中檢視目前進度，點按「Train﹞」按鈕後，
+    Log Output 應該會出現:
+	Start...
+	Create model ...
+	Model created
+	Add layers ...
+	Layers created
+	Start compiling ...
+	Compiled
+
+
+
+
+4.	載入 MNIST 圖檔並且訓練模型
+
+
+4.1	在 </script> 前一行，貼入下列程式:
+
+        async function load() {
+            createLogEntry('Loading MNIST data ...');
+            data = new MnistData();
+            await data.load();
+            createLogEntry('Data loaded successfully');
+        }
+
+
+4.2	在 </script> 前一行，再貼入下列程式:
+
+        const BATCH_SIZE = 64;
+        const TRAIN_BATCHES = 150;
+
+        async function train() {
+            createLogEntry('Start training ...');
+            for (let i = 0; i < TRAIN_BATCHES; i++) {
+                const batch = tf.tidy(() => {
+                    const batch = data.nextTrainBatch(BATCH_SIZE);
+                    batch.xs = batch.xs.reshape([BATCH_SIZE, 28, 28, 1]);
+                    return batch;
+                });
+
+                await model.fit(
+                    batch.xs, batch.labels, { batchSize: BATCH_SIZE, epochs: 1 }
+                );
+
+                tf.dispose(batch);
+
+                await tf.nextFrame();
+            }
+            createLogEntry('Training complete');
+        }
+
+
+4.3	將 trainModelAndSaveModel() 函式的內容改寫成這樣:
+        async function trainModelAndSaveModel() {
+            createModel();
+            await load();
+            await train();
+        }
+
+<Question>
+為何要以非同步的方式呼叫 load() 與 train() ?
+
+
+4.4	在瀏覽器中檢視目前進度，點按「Train﹞」按鈕後，
+    Log Output 應該會出現下列報告:
+	Create model ...
+	Model created
+	Add layers ...
+	Layers created
+	Start compiling ...
+	Compiled
+	Loading MNIST data ...
+	Data loaded successfully
+	Start training ...
+	Training complete
+
+
+4.5 待「Training complete」訊息出現之後，
+    點按「Test」按鈕，測試手寫辨識的訓練成果
+
+
+4.6 辨識成功率應該很不錯，但是，訓練時間還蠻久的。
+    若是每次使用這支程式，都要重新訓練模型，很花時間。
+    
+    請想想看，如何能將訓練好的模型存下來?
+    日後只要下載模型，就能省下訓練時間，直接進行手寫辨識。
+
+
+
+
+5.  儲存、回存訓練模型
+
+    <Note> 步驟 5.x 的各項操作，請勿使用無痕模式。
+
+
+5.1	將 trainModelAndSaveModel() 函式的內容改寫成這樣:
+        async function trainModelAndSaveModel() {
+            createModel();
+            await load();
+            await train();
+            await model.save('localstorage://mnist_cnn_model');
+        }
+
+
+5.2 在瀏覽器中檢視目前進度，點按「Train﹞」按鈕後，
+    啟動開發人員工具(Ctrl+Shift+I)，
+    在Application觀察LocalStorage的內容，
+    順利的話，可找到下列五項內容:
+    tensorflowjs_models/mnist_cnn_model/model_topology
+    tensorflowjs_models/mnist_cnn_model/weight_specs
+    tensorflowjs_models/mnist_cnn_model/weight_data
+    tensorflowjs_models/mnist_cnn_model/model_metadata
+    tensorflowjs_models/mnist_cnn_model/info
+
+
+5.3 關閉瀏覽器
+
+
+5.4 在 </script> 寫作下列程式:
+
+        async function loadModelAndData() {
+            model = await tf.loadLayersModel('localstorage://mnist_cnn_model');
+            createLogEntry('Model loaded');
+            data = new MnistData();
+            await data.load();
+            createLogEntry('Data loaded successfully');            
+        }
+
+    <Note>
+    loadModelAndData() 是「Load」按鈕會呼叫的工作函式
+
+
+5.5 啟動瀏覽器，連接 http://localhost:3000
+
+
+5.6 點按畫面中間的「Load」按鈕，從 localStorage 載入模型
+
+
+5.7 點按畫面右邊的「Test」按鈕
+
+
+
+
+6.  上傳、下載訓練模型
+
+
+6.1 修改 trainModelAndSaveModel() 的內容，如下:
+
+        async function trainModelAndSaveModel() {
+            createModel();
+            await load();
+            await train();
+            await model.save('localstorage://mnist_cnn_model');
+            var dataToServer = {
+                model_topology: localStorage["tensorflowjs_models/mnist_cnn_model/model_topology"],
+                weight_specs: localStorage["tensorflowjs_models/mnist_cnn_model/weight_specs"],
+                weight_data: localStorage["tensorflowjs_models/mnist_cnn_model/weight_data"],
+                model_metadata: localStorage["tensorflowjs_models/mnist_cnn_model/model_metadata"],
+                info: localStorage["tensorflowjs_models/mnist_cnn_model/info"]
+            };
+
+            $.ajax({
+                type: "post",
+                url: "/api/setModel",
+                contentType: "application/json",
+                data: JSON.stringify(dataToServer)
+            }).then(function (e) {               
+                createLogEntry('Model uploaded.');
+            })
+
+        }
+
+
+6.2 修改 loadModelAndData()，如下:
+
+        async function loadModelAndData() {
+            $.ajax({
+                type: "get",
+                url: "/api/getModel"
+            }).then(async function (e) {
+                var modelData = JSON.parse(e);
+                localStorage.setItem("tensorflowjs_models/mnist_cnn_model/model_topology", modelData.model_topology);
+                localStorage.setItem("tensorflowjs_models/mnist_cnn_model/weight_specs", modelData.weight_specs);
+                localStorage.setItem("tensorflowjs_models/mnist_cnn_model/weight_data", modelData.weight_data);
+                localStorage.setItem("tensorflowjs_models/mnist_cnn_model/model_metadata", modelData.model_metadata);
+                localStorage.setItem("tensorflowjs_models/mnist_cnn_model/info", modelData.info);
+
+                model = await tf.loadLayersModel('localstorage://mnist_cnn_model');
+                createLogEntry('Model loaded from server');
+
+                data = new MnistData();
+                await data.load();
+                createLogEntry('MNIST Data loaded successfully');            
+            })
+        }
+
+
+    <Note>
+    請閱讀並說明上述兩段程式的作用
+
+    <Note>
+    請閱讀 routes/api.js 的程式內容，
+    研究一下 Web API Server 如何接收與儲存模型。
+
+
+6.3 以瀏覽器連接到 http://localhost:3000
+
+
+6.4 點按左邊的「Train」按鈕，完成模型訓練與上傳作業
+
+
+6.5 啟動開發人員工具(Ctrl+Shift+I)，
+    手動清除 LocalStorage 的內容
+
+
+6.6 點按中間的「Load」按鈕，從 API Server 下載模型
+
+
+6.7 點按右側的「Test」按鈕，測試辨識結果
+

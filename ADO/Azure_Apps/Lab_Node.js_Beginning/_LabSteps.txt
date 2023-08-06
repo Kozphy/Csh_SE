@@ -1,0 +1,127 @@
+# Node.js Web伺服器程式入門實作
+
+
+1.	執行 Node.js 程式
+
+
+1.1	滑鼠右鍵點按 Lab_Node.js_Beginning 資料夾，
+	選擇: Open in Terminal，開啟終端機視窗
+
+
+1.2	輸入下列指令
+	node -v
+
+	<Note>出現 Node.js 的版本號碼，例如: v12.16.1
+
+
+1.3	在 Lab_Node.js_Beginning 資料夾，
+	建立一個檔名為 hello.js 的檔案，檔案內容如下:
+	console.log("Hello!");
+
+
+1.4	在終端機視窗輸入下列指令以執行 hello.js 程式:
+	node hello.js
+
+
+
+2	利用 Node.js ＋ Express 模組建立 Web Server
+
+
+2.1	在「終端機視窗」輸入「npm install express」
+
+	<Note>
+	請確認 node_modules 資料夾裡頭有 express 子資料夾
+
+
+2.2	將 createServer.js 的程式修改成下列內容:
+
+console.log("Starting...");
+var port = 80;
+var express = require("express");
+var app = express();
+
+app.get("/", function (request, response) {
+	response.send("hello!");
+});
+
+app.listen(port);
+
+
+2.3	執行 node createServer.js，
+	然後以瀏覽器連接 http://localhost
+
+
+2.4	在終端機視窗，
+	以組合鍵 Ctrl + C 結束 createServer.js 程式
+
+
+2.5	將 createServer.js 的程式修改成下列內容:
+
+console.log("Starting...");
+var port = 80;
+var express = require("express");
+
+var app = express();
+
+app.get("/", function (request, response) {
+	response.send("hello!");
+});
+
+app.get("/hello/:text", function (request, response) {
+	response.send("Hello! " + request.params.text);
+});
+
+app.listen(port);
+
+
+2.6	執行 createServer.js，
+	然後以瀏覽器連接:
+	http://localhost/hello/你的名字
+	例如: 
+	http://localhost/hello/Chien
+
+	
+2.7	在終端機視窗，
+	以組合鍵 Ctrl + C 結束 createServer.js 程式
+
+
+2.8	將 createServer.js 的程式修改成下列內容:
+
+console.log("Starting...");
+var port = 80;
+var express = require("express");
+
+var app = express();
+
+app.get("/", function (request, response) {
+	response.send("hello!");
+});
+
+app.get("/hello/:text", function (request, response) {
+	response.send("Hello!" + request.params.text);
+});
+
+// Web伺服器的靜態檔案置於 public 資料夾
+app.use( express.static( "public" ) );
+
+app.listen(port);
+
+
+2.9	在 Lab_Node.js_Beginning 建立新的資料夾，名稱: public
+
+
+2.a	在 public 資料夾建立新檔案: hello.html
+	內容隨意
+
+
+2.b	執行 createServer.js，
+	然後以瀏覽器連接:
+	http://localhost/hello.html
+
+	
+2.c	結束 createServer.js 程式
+
+	<Note> public 資料夾有何用途?
+
+
+

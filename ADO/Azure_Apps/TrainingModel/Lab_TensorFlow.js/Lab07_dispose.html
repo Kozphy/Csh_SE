@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+    <hr />
+    <div id="debug2"></div>
+
+
+    <script>
+        const x = tf.tensor2d([[0.0, 2.0], [4.0, 6.0]]);
+        const x_squared = x.square();
+
+        debug.innerText = x;
+
+        x.dispose();
+        x_squared.dispose();
+        
+        // Uncaught Error: Tensor is disposed.
+        debug2.innerText = x;
+    </script>
+</body>
+</html>

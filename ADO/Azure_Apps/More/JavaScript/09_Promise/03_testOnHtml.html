@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+function longTimeWork(workFine = true, errorMessage = "test") {
+    return new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            (workFine) ? resolve(200) : reject(errorMessage);
+        }, 1000);
+    })
+}
+
+// async function usingLongTimeWork() {
+//     var result = await longTimeWork(true, "test");
+//     console.log(result);
+// }
+
+async function usingLongTimeWork(isOK) {
+    try {
+        var result = await longTimeWork(isOK, "test");
+        console.log(result);
+    }
+    catch (e) {
+        console.log(e);
+    }
+    
+}
+
+console.log("flag A");
+usingLongTimeWork(true);
+console.log("flag B");
+usingLongTimeWork(false);
+console.log("flag C");
+
+</script>    
+</body>
+</html>

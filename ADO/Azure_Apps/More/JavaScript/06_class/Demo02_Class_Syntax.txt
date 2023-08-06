@@ -1,0 +1,142 @@
+// --------------------------------------------------
+// 210 定義類別(一) -- class, new
+
+"use strict";
+class CAnimal {
+    makeSound() {
+        alert("Animal: ...");
+    }
+}
+let obj = new CAnimal();
+obj.makeSound();
+
+
+
+
+// --------------------------------------------------
+// 220 定義類別(二) -- private, property(get, set)
+
+"use strict";
+class CAnimal {
+    constructor() {
+        this._weight = 0;
+    }
+    get weight() {
+        return this._weight;
+    }
+    set weight(weightValue) {
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }
+    }
+    makeSound() {
+        alert("Animal: ...");
+    }
+}
+let obj = new CAnimal();
+obj.weight = 100;
+obj.weight = -3;
+alert(obj.weight.toString());
+
+
+
+
+// --------------------------------------------------
+// 230 定義類別(三) -- constructor
+
+"use strict";
+class CAnimal {
+    constructor(weightValue = 1) {
+        this._weight = 0;
+        this.weight = weightValue;
+    }
+    get weight() {
+        return this._weight;
+    }
+    set weight(weightValue) {
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }
+    }
+    makeSound() {
+        alert("Animal: ...");
+    }
+}
+// let obj = new CAnimal();
+let obj = new CAnimal(3);
+alert(obj.weight.toString());
+
+
+
+
+// --------------------------------------------------
+// 240 定義類別(四) -- extends, super
+
+"use strict";
+class CAnimal {
+    constructor(weightValue = 1) {
+        this._weight = 0;
+        this.weight = weightValue;
+    }
+    get weight() {
+        return this._weight;
+    }
+    set weight(weightValue) {
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }
+    }
+    makeSound() {
+        alert("Animal: ...");
+    }
+}
+class CDog extends CAnimal {
+    makeSound() {
+        // super.makeSound();
+        alert("Dog barking!");
+    }
+}
+let obj = new CDog(3);
+obj.makeSound();
+
+
+
+
+// --------------------------------------------------
+// 250 定義類別(五) -- extends, super()
+
+"use strict";
+class CAnimal {
+    constructor(weightValue = 1) {
+        this._weight = 0;
+        this.weight = weightValue;
+    }
+    get weight() {
+        return this._weight;
+    }
+    set weight(weightValue) {
+        if (weightValue > 0) {
+            this._weight = weightValue;
+        }
+    }
+    makeSound() {
+        alert("Animal: ...");
+    }
+}
+class CDog extends CAnimal {
+    constructor(location = "Earth", weightValue) {
+        super(weightValue);
+        this.location = location;
+    }
+    makeSound() {
+        // super.makeSound();
+        alert("Dog barking!");
+    }
+}
+// let obj = new CDog(null, 3);
+let obj = new CDog(undefined, 3);
+alert(obj.weight);
+alert(obj.location);
+
+
+

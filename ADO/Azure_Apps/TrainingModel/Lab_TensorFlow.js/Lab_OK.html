@@ -1,0 +1,117 @@
+﻿<html>
+<head>
+    <title>Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="chart_div" style="width: 600px; height: 400px;"></div>
+    <div id="debug"></div>
+
+    <script>
+
+        function generateData(numPoints, coeff, sigma = 0.04) {
+            return tf.tidy(() => {
+                const [a, b, c, d] = [
+                    tf.scalar(coeff.a), tf.scalar(coeff.b), tf.scalar(coeff.c),
+                    tf.scalar(coeff.d)
+                ];
+
+                const xs = tf.randomUniform([numPoints], -1, 1);
+
+                // Generate polynomial data
+                const three = tf.scalar(3, 'int32');
+                const ys = a.mul(xs.pow(three))
+                    .add(b.mul(xs.square()))
+                    .add(c.mul(xs))
+                    .add(d)
+                    // Add random noise to the generated data
+                    // to make the problem a bit more interesting
+                    .add(tf.randomNormal([numPoints], 0, sigma));
+
+                // Normalize the y values to the range 0 to 1.
+                const ymin = ys.min();
+                const ymax = ys.max();
+                const yrange = ymax.sub(ymin);
+                const ysNormalized = ys.sub(ymin).div(yrange);
+
+                return {
+                    xs,
+                    ys: ysNormalized
+                };
+            })
+        }
+
+        const trueCoefficients = { a: -.8, b: -.2, c: .9, d: .5 };
+        const trainingData = generateData(100, trueCoefficients);
+        const xvals = trainingData.xs.dataSync();
+        const yvals = trainingData.ys.dataSync();
+        const values = Array.from(yvals).map((y, i) => {
+            return [xvals[i], yvals[i]];
+        });
+        values.unshift(['X', 'Y'])
+
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable(values);
+
+            var options = {
+                title: 'Training Data',
+                hAxis: { title: 'X', minValue: 0, maxValue: 1 },
+                vAxis: { title: 'Y', minValue: 0, maxValue: 1 },
+                legend: 'none'
+            };
+
+            var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+            chart.draw(data, options);
+        }
+
+        // Lab 程式:
+
+        const a = tf.variable(tf.scalar(Math.random()));
+        const b = tf.variable(tf.scalar(Math.random()));
+        const c = tf.variable(tf.scalar(Math.random()));
+        const d = tf.variable(tf.scalar(Math.random()));
+
+        function predict(x) {
+            // y = a * x ^ 3 + b * x ^ 2 + c * x + d
+            return tf.tidy(() => {
+                return a.mul(x.pow(tf.scalar(3))) // a * x^3
+                    .add(b.mul(x.square())) // + b * x ^ 2
+                    .add(c.mul(x)) // + c * x
+                    .add(d); // + d
+            });
+        }
+
+        function loss(predictions, labels) {
+            // 用預測結果減掉實際值（label），平方並取得平均。
+            const meanSquareError = predictions.sub(labels).square().mean();
+            return meanSquareError;
+        }
+
+        function train(xs, ys, numIterations = 75) {
+
+            const learningRate = 0.5;
+            const optimizer = tf.train.sgd(learningRate);
+
+            for (let iter = 0; iter < numIterations; iter++) {
+                optimizer.minimize(() => {
+                    const predsYs = predict(xs);
+                    return loss(predsYs, ys);
+                });
+            }
+        }
+
+        train(trainingData.xs, trainingData.ys, 200);
+        debug.innerHTML =
+            `a=${a.dataSync()[0]}<br>
+             b=${b.dataSync()[0]}<br>
+             c=${c.dataSync()[0]}<br>
+             d=${d.dataSync()[0]}<br>`;
+
+    </script>
+</body>
+</html>

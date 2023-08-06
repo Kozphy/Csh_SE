@@ -1,0 +1,26 @@
+﻿<html>
+<head>
+    <title></title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+</head>
+<body>
+    <h1>Tensorflow.js</h1>
+    <div id="debug"></div>
+    <hr />
+    <div id="debug2"></div>
+
+
+    <script>
+        const c = tf.tensor2d([[1.0, 2.0, 3.0], [10.0, 20.0, 30.0]]);
+        c.print();
+        // 輸出： [[1 , 2 , 3 ],
+        //        [10, 20, 30]]
+        debug.innerText = c;
+
+        // 3x5 張量，值都為 0
+        const zeros = tf.zeros([3, 5]);
+        debug2.innerText = zeros;
+    </script>
+</body>
+</html>

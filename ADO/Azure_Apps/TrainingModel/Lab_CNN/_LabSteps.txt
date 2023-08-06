@@ -1,0 +1,376 @@
+﻿Lab: 以卷積神經網路辨識手寫數字
+
+<Note>
+本課堂習作改編自 Sebastian Eschweiler 的作品，原文如下:
+https://medium.com/codingthesmartway-com-blog/tensorflow-js-crash-course-machine-learning-for-the-web-handwriting-recognition-febc309b10aa
+畫面及程式相同於原作，但去除 Node.js 不用，並改變實作步驟的先後次序
+
+<Note>
+data.js 為 TensofFlow.js 官方範例提供的 MNIST 圖檔下載程式。程式出處:
+https://github.com/NoobTW/tfjs-tutorials/blob/master/tutorials/mnist.md
+
+
+
+0.	預備知識:
+
+初探卷積神經網路
+https://chtseng.wordpress.com/2017/09/12/%E5%88%9D%E6%8E%A2%E5%8D%B7%E7%A9%8D%E7%A5%9E%E7%B6%93%E7%B6%B2%E8%B7%AF/
+
+A Beginner's Guide To Understanding Convolutional Neural Networks
+https://adeshpande3.github.io/adeshpande3.github.io/A-Beginner's-Guide-To-Understanding-Convolutional-Neural-Networks/
+https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks-Part-2/
+
+
+
+
+1	準備：操作畫面與函式庫
+
+
+1.1	在 Lab_CNN 資料夾建立新檔案，檔名: index.html，內容如下:
+    <Hint>
+    滑鼠右鍵 Lab_CNN 資料夾 | New File
+
+<html>
+<head>
+    <title>Lab</title>
+    <!-- Bootstrap: -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- TansorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.12.0"></script>
+
+    <!-- Mnist class, download images from MINST -->
+    <script src="data.js"></script>
+
+    <style>
+        .prediction-canvas {
+            width: 100px;
+            margin: 20px;
+        }
+
+        .prediction-div {
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="padding-top: 20px">
+        <div class="card">
+            <div class="card-header">
+                <strong>TensorFlow.js Demo - Handwriting Recognition</strong>
+            </div>
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Log Output:</h5>
+                        <div id="log"></div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Predict</h5>
+                        <button type="button" class="btn btn-primary" id="selectTestDataButton" disabled>Please wait until model is ready ...</button>
+                        <div id="predictionResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+ 
+        function createLogEntry(entry) {
+            document.getElementById('log').innerHTML += '<br>' + entry;
+        }
+
+        main();
+
+        async function main() {
+            createLogEntry("Start...");
+
+        }       
+
+
+
+
+    </script>
+</body>
+</html>
+
+
+1.2 請問 HTML 文件引用了哪些 JavaScript ?
+
+
+1.3	在瀏覽器中檢視目前進度，
+	Log Output 應該會出現 Start... 字樣
+
+
+
+
+2.	建立 model
+
+
+2.1	在 </script> 前一行，貼入下列程式:
+
+        var model;
+
+        function createModel() {
+            createLogEntry('Create model ...');
+            model = tf.sequential();
+            createLogEntry('Model created');
+
+        }
+
+2.2	在 main() 加寫程式呼叫 createModel()，main() 函式的新內容:
+        async function main() {
+            createLogEntry("Start...");
+            createModel()
+
+        }   
+
+
+2.3	在瀏覽器中檢視目前進度，Log Output 應該會出現:
+	Start...
+	Create model ...
+	Model created
+
+
+<Question> 什麼是 model ?
+
+<Question> 
+tf.sequential() 建立的是怎樣的神經網路?
+各層之間的關係如何?
+
+
+
+
+3.	定義卷積網路的各個神經層
+
+
+3.1	在 createModel() 加進下列程式以定義第一層卷積網路神經層:
+
+            createLogEntry('Add layers ...');
+            model.add(tf.layers.conv2d({
+                inputShape: [28, 28, 1],
+                kernelSize: 5,
+                filters: 8,
+                strides: 1,
+                activation: 'relu',
+                kernelInitializer: 'VarianceScaling'
+            }));
+
+<Note> 餵入我們卷積網路的手寫圖片將是 28x28，單色。
+
+<Question> kernelSize、filters、strides 各參數分別在設定什麼?
+
+<Question> relu 是怎麼做的?
+
+
+3.2	在 createModel() 加進下列程式以定義 maxPooling 層:
+
+            model.add(tf.layers.maxPooling2d({
+                poolSize: [2, 2],
+                strides: [2, 2]
+            }));
+
+<Question> pooling 是什麼?
+
+<Question> poolSize、strides 各參數分別在設定什麼?
+
+
+3.3	在 createModel() 加進下列程式定義第二層卷積網路神經層:
+
+            model.add(tf.layers.conv2d({
+                kernelSize: 5,
+                filters: 16,
+                strides: 1,
+                activation: 'relu',
+                kernelInitializer: 'VarianceScaling'
+            }));
+
+
+3.4	在 createModel() 再加進第二個 maxPooling 層:
+
+            model.add(tf.layers.maxPooling2d({
+                poolSize: [2, 2],
+                strides: [2, 2]
+            }));
+
+
+3.5	在 createModel() 銜接 CNN 網路到全連接層網路:
+            model.add(tf.layers.flatten());
+
+            model.add(tf.layers.dense({
+                units: 10,
+                kernelInitializer: 'VarianceScaling',
+                activation: 'softmax'
+            }));
+
+            createLogEntry('Layers created');
+
+
+3.6	在 createModel() 加寫下列程式:
+
+            createLogEntry('Start compiling ...');
+            model.compile({
+                optimizer: tf.train.sgd(0.15),
+                loss: 'categoricalCrossentropy'
+            });
+            createLogEntry('Compiled');
+
+<Question> 
+?! tf.train.sgd() !? 
+請試著描述梯度下降法與損失函數的作用以及它們在訓練過程的關聯
+
+
+3.7	在瀏覽器中檢視目前進度，Log Output 應該會出現:
+	Start...
+	Create model ...
+	Model created
+	Add layers ...
+	Layers created
+	Start compiling ...
+	Compiled
+
+
+
+
+4.	載入 MNIST 圖檔並且訓練模型
+
+
+4.1	在 </script> 前一行，貼入下列程式:
+
+        var data;
+
+        async function load() {
+            createLogEntry('Loading MNIST data ...');
+            data = new MnistData();
+            await data.load();
+            createLogEntry('Data loaded successfully');
+        }
+
+
+4.2	在 </script> 前一行，再貼入下列程式:
+
+        const BATCH_SIZE = 64;
+        const TRAIN_BATCHES = 150;
+
+        async function train() {
+            createLogEntry('Start training ...');
+            for (let i = 0; i < TRAIN_BATCHES; i++) {
+                const batch = tf.tidy(() => {
+                    const batch = data.nextTrainBatch(BATCH_SIZE);
+                    batch.xs = batch.xs.reshape([BATCH_SIZE, 28, 28, 1]);
+                    return batch;
+                });
+
+                await model.fit(
+                    batch.xs, batch.labels, { batchSize: BATCH_SIZE, epochs: 1 }
+                );
+
+                tf.dispose(batch);
+
+                await tf.nextFrame();
+            }
+            createLogEntry('Training complete');
+        }
+
+
+4.3	將 main() 函式的內容改寫成這樣:
+        async function main() {
+            createModel();
+            await load();
+            await train();
+            document.getElementById('selectTestDataButton').disabled = false;
+            document.getElementById('selectTestDataButton').innerText = "Ramdomly Select Test Data And Predict";
+        }
+
+<Question>
+為何要以非同步的方式呼叫 load() 與 train() ?
+
+
+4.4	在瀏覽器中檢視目前進度，Log Output 應該會出現下列報告，此外，
+	按鈕提示文字變成: Ramdomly Select Test Data And Predict
+	Create model ...
+	Model created
+	Add layers ...
+	Layers created
+	Start compiling ...
+	Compiled
+	Loading MNIST data ...
+	Data loaded successfully
+	Start training ...
+	Training complete
+
+
+
+
+5.	驗收訓練成果
+
+5.1	在 </script> 前一行，貼入下列程式:
+
+        async function predict(batch) {
+            tf.tidy(() => {
+                const input_value = Array.from(batch.labels.argMax(1).dataSync());
+
+                const div = document.createElement('div');
+                div.className = 'prediction-div';
+
+                const output = model.predict(batch.xs.reshape([-1, 28, 28, 1]));
+
+                const prediction_value = Array.from(output.argMax(1).dataSync());
+                const image = batch.xs.slice([0, 0], [1, batch.xs.shape[1]]);
+
+                const canvas = document.createElement('canvas');
+                canvas.className = 'prediction-canvas';
+                draw(image.flatten(), canvas);
+
+                const label = document.createElement('div');
+                label.innerHTML = 'Original Value: ' + input_value;
+                label.innerHTML += '<br>Prediction Value: ' + prediction_value;
+
+                if (prediction_value - input_value == 0) {
+                    label.innerHTML += '<br>Value recognized successfully';
+                } else {
+                    label.innerHTML += '<br>Recognition failed!'
+                }
+
+                div.appendChild(canvas);
+                div.appendChild(label);
+                document.getElementById('predictionResult').appendChild(div);
+            });
+        }
+
+        function draw(image, canvas) {
+            const [width, height] = [28, 28];
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            const imageData = new ImageData(width, height);
+            const data = image.dataSync();
+            for (let i = 0; i < height * width; ++i) {
+                const j = i * 4;
+                imageData.data[j + 0] = data[i] * 255;
+                imageData.data[j + 1] = data[i] * 255;
+                imageData.data[j + 2] = data[i] * 255;
+                imageData.data[j + 3] = 255;
+            }
+            ctx.putImageData(imageData, 0, 0);
+        }
+
+        document.getElementById('selectTestDataButton').addEventListener('click', async (el, ev) => {
+            const batch = data.nextTestBatch(1);
+            await predict(batch);
+        });
+
+
+5.2	在瀏覽器中檢視作品，待訓練完成的訊息出現，點按
+	「Ramdomly Select Test Data And Predict」按鈕。
+
