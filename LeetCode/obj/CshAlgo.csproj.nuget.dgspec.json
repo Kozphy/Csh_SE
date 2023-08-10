@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dbdf0\\source\\repos\\C_sh_l\\learnProject\\LeetCode\\CshAlgo.csproj": {}
+    "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dbdf0\\source\\repos\\C_sh_l\\learnProject\\LeetCode\\CshAlgo.csproj": {
+    "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dbdf0\\source\\repos\\C_sh_l\\learnProject\\LeetCode\\CshAlgo.csproj",
+        "projectUniqueName": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
         "projectName": "CshAlgo",
-        "projectPath": "C:\\Users\\dbdf0\\source\\repos\\C_sh_l\\learnProject\\LeetCode\\CshAlgo.csproj",
+        "projectPath": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
         "packagesPath": "C:\\Users\\dbdf0\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dbdf0\\source\\repos\\C_sh_l\\learnProject\\LeetCode\\obj\\",
+        "outputPath": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

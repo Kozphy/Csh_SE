@@ -2,6 +2,7 @@
 using ConsoleApp2.grind_169;
 using ConsoleApp2.test_func;
 using System.ComponentModel;
+using ConsoleApp2.algo;
 using ConsoleApp2.practice.abstract_p;
 using ConsoleApp2.practice.Interface_p;
 using ConsoleApp2.practice.Inheritence_p;
@@ -29,7 +30,14 @@ namespace ConsoleApp2
             // main.Start(args);
             //event_delegate.Start();
             //event_and_multicast_delegate.Start();
-            Longest_SubString_3.Start();
+            //Longest_SubString_3.Start();
+        }
+
+        static void Bubble_Sort()
+        {
+            Bubble_sort.Start("asc");
+            Console.WriteLine("------------");
+            Bubble_sort.Start("desc");
         }
     }
 }
