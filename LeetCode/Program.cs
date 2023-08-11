@@ -16,6 +16,7 @@ using ConsoleApp2.practice.Main_p;
 using ConsoleApp2.practice.event_delegate_p;
 using ConsoleApp2.practice.event_delegate_p.multicast_delegate;
 using CshAlgo.grind_169;
+using CshAlgo.practice.Try_parse;
 
 namespace ConsoleApp2
 {
@@ -31,6 +32,8 @@ namespace ConsoleApp2
             //event_delegate.Start();
             //event_and_multicast_delegate.Start();
             //Longest_SubString_3.Start();
+            try_parse tp = new try_parse();
+            tp.parse1();
         }
 
         static void Bubble_Sort()
