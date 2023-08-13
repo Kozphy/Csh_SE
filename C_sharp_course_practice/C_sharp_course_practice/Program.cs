@@ -17,6 +17,9 @@ namespace C_sharp_course_practice
             //strings.VerbatimString();
 
             // arrays
+            //Arrays.RetrieveArraySize();
+            //Arrays.LoopArray();
+            Arrays.MultiDimensionalArray();
 
         }
     }
