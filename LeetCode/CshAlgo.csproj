@@ -8,8 +8,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="practice\NewFolder\**" />
+    <EmbeddedResource Remove="practice\NewFolder\**" />
+    <None Remove="practice\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="practice\collection_p\" />
-    <Folder Include="practice\NewFolder\" />
+    <Folder Include="practice\NewFolder1\" />
   </ItemGroup>
 
 </Project>

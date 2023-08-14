@@ -8,23 +8,23 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\dbdf0\\.nuget\\packages\\": {},
+    "C:\\Users\\zixsa\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
+      "projectUniqueName": "C:\\Users\\zixsa\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
       "projectName": "CshAlgo",
-      "projectPath": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
-      "packagesPath": "C:\\Users\\dbdf0\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\dbdf0\\source\\repos\\Csh_SE\\LeetCode\\obj\\",
+      "projectPath": "C:\\Users\\zixsa\\source\\repos\\Csh_SE\\LeetCode\\CshAlgo.csproj",
+      "packagesPath": "C:\\Users\\zixsa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\zixsa\\source\\repos\\Csh_SE\\LeetCode\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\dbdf0\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\zixsa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,6 +33,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
