@@ -25,6 +25,11 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
+            // two sum
+            //foreach (var i in TwoSum.hashTable())
+            //{
+            //    Console.WriteLine(i);
+            //}
             // datetime_start.Start();
             // nullable_start.Start();
             // explain_Main_start(args);
@@ -32,8 +37,8 @@ namespace ConsoleApp2
             //event_delegate.Start();
             //event_and_multicast_delegate.Start();
             //Longest_SubString_3.Start();
-            try_parse tp = new try_parse();
-            tp.parse1();
+            //try_parse tp = new try_parse();
+            //tp.parse1();
         }
 
         static void Bubble_Sort()

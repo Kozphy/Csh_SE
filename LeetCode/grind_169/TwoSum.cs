@@ -8,32 +8,46 @@ namespace ConsoleApp2.grind_169
 {
     internal class TwoSum
     {
-        private static int[] nums = { 2, 7, 11, 15 };
-        private int target = 9;
-        public int length = nums.Length;
+        private static int[] nums = { 2, 5, 5, 11 };
+        private static int target = 10;
+        public static int length = nums.Length;
 
-        public int[] caculate()
+        public static int[] brute()
+        {
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = i+1; j < nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == target)
+                    {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+
+            return new int[]{};
+        }
+
+        public static int[] hashTable()
         {
             if (nums == null || nums.Length == 0)
             {
-                return new int[2];
+                return new int[]{};
             }
 
             Dictionary<int, int> dic = new Dictionary<int, int>();
 
             for (int i = 0; i < nums.Length; i++)
             {
-                Console.WriteLine(i);
-                if (dic.ContainsKey(target - nums[i]))
+                int currentValue = nums[i];
+                int want = target - currentValue;
+                if (dic.TryGetValue(want, out int value))
                 {
-                    return new int[] { i, dic[target - nums[i]] };
+                    return new int[] { value, i };
                 }
-                else if (!dic.ContainsKey(nums[i]))
-                {
-                    dic.Add(nums[i], i);
-                }
+                dic[currentValue] = i;
             }
-            return new int[2];
+            return new int[]{};
         }
     }
 }
