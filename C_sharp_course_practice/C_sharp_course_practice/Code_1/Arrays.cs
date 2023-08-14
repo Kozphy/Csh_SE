@@ -92,7 +92,6 @@ namespace C_sharp_course_practice.Code_1
                 }
                 Console.WriteLine();
             }
-
         }
     }
 }
