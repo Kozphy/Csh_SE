@@ -11,7 +11,8 @@ namespace ConsoleApp2.practice.event_delegate_p
             // System.Console.WriteLine(calcu.ApplyOperation("+",1,2));
             // System.Console.WriteLine(calcu.ApplyOperation2(calcu.Add,5,2));
             // Person.Anonymous_method();
-            event_and_multicast_delegate.Start(); 
+            //event_and_multicast_delegate.Start(); 
+            //delegate_Basic.filter_i_start();
             
 
         }

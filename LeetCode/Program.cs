@@ -16,7 +16,7 @@ using ConsoleApp2.practice.Main_p;
 using ConsoleApp2.practice.event_delegate_p;
 using ConsoleApp2.practice.event_delegate_p.multicast_delegate;
 using CshAlgo.grind_169;
-using CshAlgo.practice.Try_parse;
+using CshAlgo.practice.try_parse;
 
 namespace ConsoleApp2
 {
