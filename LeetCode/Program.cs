@@ -32,7 +32,8 @@ namespace ConsoleApp2
             //event_delegate.Start();
             //event_and_multicast_delegate.Start();
             //Longest_SubString_3.Start();
-            tryParse.Start();
+            try_parse tp = new try_parse();
+            tp.parse1();
         }
 
         static void Bubble_Sort()
