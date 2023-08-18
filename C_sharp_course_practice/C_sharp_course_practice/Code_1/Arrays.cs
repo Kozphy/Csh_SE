@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,10 @@ namespace C_sharp_course_practice.Code_1
     internal class Arrays
     {
         private static string[]? customers = null;
+        private static readonly int[] RandNums = { 1, 4, 9, 2 };
+
+        private static Array AnotherArray = Array.CreateInstance(typeof(int), 10);
+        private static readonly int[] SrcArray = { 1, 2, 3 };
 
         public static void defineArray()
         {
@@ -75,7 +80,7 @@ namespace C_sharp_course_practice.Code_1
             };
 
             // GetValue
-            Console.WriteLine("MD Value: {0}", custNames.GetValue(1,1));
+            Console.WriteLine("MD Value: {0}", custNames.GetValue(1, 1));
 
             // Get dimensional length
             Console.WriteLine("first dimensional length {0}", custNames.GetLength(0));
@@ -88,10 +93,76 @@ namespace C_sharp_course_practice.Code_1
                 // Get second dimensional
                 for (int j = 0; j < custNames.GetLength(1); j++)
                 {
-                    Console.WriteLine("{0} ", custNames[i,j]);
+                    Console.WriteLine("{0} ", custNames[i, j]);
                 }
                 Console.WriteLine();
             }
         }
+
+        public static void SortArrayWithIndex()
+        {
+            Array.Sort(RandNums);
+            RandNums.ArrayDump();
+        }
+
+        public static void ReverseArrayWithIndex()
+        {
+            Array.Reverse(RandNums);
+            RandNums.ArrayDump();
+        }
+
+        public static void ChangeIndexValue(int index, int value)
+        {
+            RandNums.SetValue(value, index);
+            RandNums.ArrayDump();
+        }
+
+        public static void CopyPartOfArray()
+        {
+            int[] srcArray = { 1, 2, 3 };
+            int[] destArray = new int[2];
+            int startIndex = 0;
+            int length = destArray.Length;
+            Array.Copy(srcArray,startIndex,
+                destArray,startIndex,length);
+            destArray.ArrayDump();
+        }
+
+        public static void CreateZeroArrWithInstance()
+        {
+            AnotherArray.ArrayDump();
+        }
+
+        public static void ArrCopyTo()
+        {
+            // Copy values in srcArray to destArray starting
+            // { 1,2,3 }
+            SrcArray.CopyTo(AnotherArray,5);
+            AnotherArray.ArrayDump();
+        }
     }
+
+    public static class ArrayExts
+    {
+        public static void ArrayDump(this int[] arr)
+        {
+            int index = 0;
+            foreach (var value in arr)
+            {
+                Console.WriteLine($"index: {index}, value: {value}");
+                index++;
+            }
+        }
+
+        public static void ArrayDump(this Array arr)
+        {
+            int index = 0;
+            foreach (var value in arr)
+            {
+                Console.WriteLine($"index: {index}, value: {value}");
+                index++;
+            }
+        }
+    }
+
 }
