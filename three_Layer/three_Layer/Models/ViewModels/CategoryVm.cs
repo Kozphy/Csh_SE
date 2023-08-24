@@ -7,6 +7,5 @@
         public string Description { get; set; }
         public byte[] Picture { get; set; }
         public string ColumnTest { get; set; }
-
     }
 }

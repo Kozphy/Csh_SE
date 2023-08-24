@@ -9,11 +9,13 @@ namespace ModelValidation.Controllers
         [Route("register")]
         public IActionResult Index(Person person)
         {
-            if (string.IsNullOrEmpty(person.PersonName))
+            if (!ModelState.IsValid)
             {
-                return BadRequest();
+                string errors = string.Join("\n", ModelState.Values.SelectMany(
+                    value => value.Errors).Select(err => err.ErrorMessage));
+                return BadRequest(errors);
             }
-            return Content($"{person.ToString()}");
+            return Content($"{person}");
         }
 
         [Route("ModelStateTest")]
