@@ -140,6 +140,8 @@ namespace C_sharp_course_practice.Code_1
             SrcArray.CopyTo(AnotherArray,5);
             AnotherArray.ArrayDump();
         }
+
+
     }
 
     public static class ArrayExts

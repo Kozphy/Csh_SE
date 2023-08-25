@@ -6,8 +6,9 @@ namespace ModelValidation.Models
 {
     public class Person
     {
-        [Required(ErrorMessage = "{0} can't be empty or null")]
+
         [Display(Name = "Person Name")]
+        [Required(ErrorMessage = "{0} can't be empty or null")]
         [StringLength(40, MinimumLength = 3, ErrorMessage = "{0} should be between" +
                                                             "{2} and {1} characters longs")]
         [RegularExpression("^[A-Za-z .]$", ErrorMessage = "{0} should contain only alphabets, " +
@@ -33,9 +34,14 @@ namespace ModelValidation.Models
         [Range(0, 999.99, ErrorMessage =  "{0} should be between ${1} and ${2}")]
         public double? Price { get; set; }
 
-        [MinimumYearValidator(2000, ErrorMessage = "Date of Birth should not be" +
-                                             "newer than Jan 01, {0}")]
+        [MinimumYearValidatorAttribute(2000, ErrorMessage = "Date of Birth should not be" +
+                                                   " smaller than Jan 01, {0}")]
+        //[MinimumYearValidator(2005)]
         public DateTime? DateOfBirth { get; set; }
+
+        public DateTime? FromDate { get; set; }
+        [DateRangeValidator("FromDate", ErrorMessage="From Date should be older than or equal to 'To date'")]
+        public DateTime ToDate { get; set; }
 
         public override string ToString()
         {
@@ -44,7 +50,8 @@ namespace ModelValidation.Models
                       Phone: {Phone},
                       Password: {Password},
                       ComfirmPassword: {ConfirmPassword},
-                      Price: {Price}";
+                      Price: {Price},
+                      DateOfBirth: {DateOfBirth}";
         }
     }
 }

@@ -37,6 +37,16 @@ namespace C_sharp_course_practice
 
             // CopyTo
             //Arrays.ArrCopyTo();
+
+            // string builder
+            //StringBuilders sbs = new StringBuilders();
+            //sbs.test();
+
+            // datetime & timespan
+            datetime_span ds = new datetime_span();
+            ds.test();
+
+
             
             
             

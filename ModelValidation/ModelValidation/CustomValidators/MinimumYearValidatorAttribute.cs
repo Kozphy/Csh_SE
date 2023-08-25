@@ -6,7 +6,7 @@ namespace ModelValidation.CustomValidators
     public class MinimumYearValidatorAttribute : ValidationAttribute
     {
         public int MinimumYear { get; set; } = 2000;
-        public string DefaultErrorMessage { get; set; } = "Year should not be less than {0}";
+        public string DefaultErrorMessage { get; set; } = "Year should  be less than {0}";
 
         public MinimumYearValidatorAttribute()
         {
@@ -26,7 +26,7 @@ namespace ModelValidation.CustomValidators
                 DateTime date = (DateTime)value;
                 if (date.Year >= MinimumYear)
                 {
-                    return new ValidationResult(ErrorMessage);
+                    return new ValidationResult(string.Format(ErrorMessage ?? DefaultErrorMessage, MinimumYear));
                 }
                 else
                 {

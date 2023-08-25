@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ModelValidation.Models;
 
-
 namespace ModelValidation.Controllers
 {
     public class HomeController : Controller
@@ -11,11 +10,12 @@ namespace ModelValidation.Controllers
         {
             if (!ModelState.IsValid)
             {
+                Console.WriteLine(ModelState);
                 string errors = string.Join("\n", ModelState.Values.SelectMany(
                     value => value.Errors).Select(err => err.ErrorMessage));
                 return BadRequest(errors);
             }
-            return Content($"{person}");
+            return Content($"{person.ToString()}");
         }
 
         [Route("ModelStateTest")]
@@ -31,13 +31,12 @@ namespace ModelValidation.Controllers
                     {
                         errorsList.Add(err.ErrorMessage);
                     }
-                    //Console.WriteLine(value);
                 }
 
                 string errors = string.Join('\n', errorsList);
                 return BadRequest(errors);
             }
-            return Content($"{person}");
+            return Content($"{person.ToString()}");
         }
     }
 }
