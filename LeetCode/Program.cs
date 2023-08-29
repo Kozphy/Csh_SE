@@ -15,14 +15,19 @@ using ConsoleApp2.practice.nullable_p;
 using ConsoleApp2.practice.Main_p;
 using ConsoleApp2.practice.event_delegate_p;
 using ConsoleApp2.practice.event_delegate_p.multicast_delegate;
+using CshAlgo.algo;
 using CshAlgo.grind_169;
 using CshAlgo.practice.try_parse;
+using CshAlgo.test_func;
 
 namespace ConsoleApp2
 {
 
     internal class Program
     {
+        private  static int[] arr1 = { 2, 2, 1 };
+        private static int[] arr2 = { 4, 1, 2, 1, 2 };
+
         static void Main(string[] args)
         {
             // two sum
@@ -39,6 +44,9 @@ namespace ConsoleApp2
             //Longest_SubString_3.Start();
             //try_parse tp = new try_parse();
             //tp.parse1();
+            // Print(FindTheIndex_28.test());
+            //Print(SingleNum.start(arr1));
+            Print(Valid_Palindrome_125.IsPalindrome("race a car"));
         }
 
         static void Bubble_Sort()
@@ -46,6 +54,11 @@ namespace ConsoleApp2
             Bubble_sort.Start("asc");
             Console.WriteLine("------------");
             Bubble_sort.Start("desc");
+        }
+
+        static void Print<T>(T f)
+        {
+            Console.WriteLine(f);
         }
     }
 }

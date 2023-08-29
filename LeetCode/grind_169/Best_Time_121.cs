@@ -8,8 +8,6 @@ namespace ConsoleApp2.grind_169
 {
     internal class Best_Time_121
     {
-        
-
         public int GetResult()
         {
             int[] prices = new int[] { 7, 1, 5, 3, 6, 4 };

@@ -12,10 +12,24 @@ namespace ModelValidation.Controllers
             {
                 Console.WriteLine(ModelState);
                 string errors = string.Join("\n", ModelState.Values.SelectMany(
-                    value => value.Errors).Select(err => err.ErrorMessage));
+                    value => value.Errors)
+                    .Select(err => err.ErrorMessage));
                 return BadRequest(errors);
             }
             return Content($"{person.ToString()}");
+        }
+
+        [Route("register2")]
+        public IActionResult Index2(Person2 person)
+        {
+            if (!ModelState.IsValid)
+            {
+                string errors = string.Join("\n", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(err => err.ErrorMessage));
+                return BadRequest(errors);
+            }
+            return Content($"{person}");
         }
 
         [Route("ModelStateTest")]
