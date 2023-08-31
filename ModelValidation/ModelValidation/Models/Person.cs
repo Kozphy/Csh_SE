@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using ModelValidation.CustomValidators;
 
@@ -6,7 +7,6 @@ namespace ModelValidation.Models
 {
     public class Person
     {
-
         [Display(Name = "Person Name")]
         [Required(ErrorMessage = "{0} can't be empty or null")]
         [StringLength(40, MinimumLength = 3, ErrorMessage = "{0} should be between" +
@@ -37,6 +37,7 @@ namespace ModelValidation.Models
         [MinimumYearValidatorAttribute(2000, ErrorMessage = "Date of Birth should not be" +
                                                    " smaller than Jan 01, {0}")]
         //[MinimumYearValidator(2005)]
+        [BindNever]
         public DateTime? DateOfBirth { get; set; }
 
         public DateTime? FromDate { get; set; }

@@ -22,7 +22,7 @@ namespace ModelValidation.CustomValidators
                 // get to_date
                 DateTime to_date = Convert.ToDateTime(value);
 
-                // get from_date
+                // get from_date (reflection)
                 PropertyInfo? otherProperty = validationContext.ObjectType.GetProperty(OtherPropertyName);
                 if (otherProperty != null)
                 {

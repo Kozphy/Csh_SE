@@ -6,7 +6,10 @@ namespace ModelValidation.Controllers
     public class HomeController : Controller
     {
         [Route("register")]
-        public IActionResult Index(Person person)
+        public IActionResult Index([Bind(nameof(Person.PersonName), 
+            nameof(Person.Email), nameof(Person.Phone), nameof(Person.Password), 
+            nameof(Person.ConfirmPassword), nameof(Person.DateOfBirth), 
+            nameof(Person.FromDate), nameof(Person.ToDate))] Person person)
         {
             if (!ModelState.IsValid)
             {
@@ -16,6 +19,7 @@ namespace ModelValidation.Controllers
                     .Select(err => err.ErrorMessage));
                 return BadRequest(errors);
             }
+
             return Content($"{person.ToString()}");
         }
 
