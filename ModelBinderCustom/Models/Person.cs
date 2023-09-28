@@ -11,8 +11,5 @@ namespace ModelBinderCustom.Models
 
         [Phone(ErrorMessage = "Phone format error")]
         public int Phone { get; set; }
-
-        public string
-
     }
 }
