@@ -19,13 +19,14 @@ using CshAlgo.algo;
 using CshAlgo.grind_169;
 using CshAlgo.practice.try_parse;
 using CshAlgo.test_func;
+using System.Numerics;
 
 namespace ConsoleApp2
 {
 
     internal class Program
     {
-        private  static int[] arr1 = { 2, 2, 1 };
+        private static int[] arr1 = { 2, 2, 1 };
         private static int[] arr2 = { 4, 1, 2, 1, 2 };
 
         static void Main(string[] args)
@@ -46,8 +47,10 @@ namespace ConsoleApp2
             //tp.parse1();
             // Print(FindTheIndex_28.test());
             //Print(SingleNum.start(arr1));
-            Print(Valid_Palindrome_125.IsPalindrome("race a car"));
+            //Print(Valid_Palindrome_125.IsPalindrome("race a car"));
+            
         }
+
 
         static void Bubble_Sort()
         {

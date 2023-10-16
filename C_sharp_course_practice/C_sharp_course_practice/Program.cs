@@ -43,17 +43,15 @@ namespace C_sharp_course_practice
             //sbs.test();
 
             // datetime & timespan
-            datetime_span ds = new datetime_span();
-            ds.test();
+            //datetime_span ds = new datetime_span();
+            //ds.test();
+            DateTime dt4 = new DateTime(2015, 12, 31, 5, 10, 20, DateTimeKind.Utc);
+            Console.WriteLine(dt4);
+            
+            
 
-            
-
-            
 
 
-            
-            
-            
 
 
 
