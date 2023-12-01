@@ -5,17 +5,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="practice\NewFolder\**" />
-    <EmbeddedResource Remove="practice\NewFolder\**" />
-    <None Remove="practice\NewFolder\**" />
+    <Compile Remove="practice\NewFolder1\**" />
+    <EmbeddedResource Remove="practice\NewFolder1\**" />
+    <None Remove="practice\NewFolder1\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="practice\collection_p\" />
-    <Folder Include="practice\NewFolder1\" />
   </ItemGroup>
 
 </Project>

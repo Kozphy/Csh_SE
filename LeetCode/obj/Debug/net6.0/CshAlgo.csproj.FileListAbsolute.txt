@@ -18,7 +18,6 @@ C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\bin\Debug\net6.0\CshAlgo.deps.json
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\bin\Debug\net6.0\CshAlgo.runtimeconfig.json
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\bin\Debug\net6.0\CshAlgo.dll
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\bin\Debug\net6.0\CshAlgo.pdb
-C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.csproj.AssemblyReference.cache
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.AssemblyInfoInputs.cache
 C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.AssemblyInfo.cs
@@ -43,3 +42,4 @@ C:\Users\zixsa\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\refint\CshAlgo.dll
 C:\Users\zixsa\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.pdb
 C:\Users\zixsa\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.genruntimeconfig.cache
 C:\Users\zixsa\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\ref\CshAlgo.dll
+C:\Users\dbdf0\source\repos\Csh_SE\LeetCode\obj\Debug\net6.0\CshAlgo.sourcelink.json

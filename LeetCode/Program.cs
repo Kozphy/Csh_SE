@@ -20,6 +20,8 @@ using CshAlgo.grind_169;
 using CshAlgo.practice.try_parse;
 using CshAlgo.test_func;
 using System.Numerics;
+using CshAlgo.practice;
+using CshAlgo.practice.value_ref_pointer_p;
 
 namespace ConsoleApp2
 {
@@ -48,9 +50,19 @@ namespace ConsoleApp2
             // Print(FindTheIndex_28.test());
             //Print(SingleNum.start(arr1));
             //Print(Valid_Palindrome_125.IsPalindrome("race a car"));
-            
+            PassByValue.Start();
+            Console.WriteLine("----------");
+            PassByReference.Start();
+            Console.WriteLine("----------");
+            PassByPointer.Start();
         }
 
+        static void TryGetValue_WithDic()
+        {
+            string value = "ftif";
+            //test_Dictionary.StartTry(out value);
+            test_Dictionary.IterDic();
+        }
 
         static void Bubble_Sort()
         {
